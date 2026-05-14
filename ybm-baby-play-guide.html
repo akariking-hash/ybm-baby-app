@@ -123,7 +123,7 @@
     <!-- ── 준비물 ── -->
     <div class="reveal d1">
       <div class="px-5 pt-5 pb-2">
-        <p class="text-[12px] font-semibold text-neutral-500 tracking-wide break-keep">준비물</p>
+        <p class="text-[18px] font-bold text-neutral-900 break-keep">준비물</p>
       </div>
       <div id="materials-list" class="flex gap-2.5 overflow-x-auto no-sb px-4 pb-1">
 
@@ -173,7 +173,7 @@
     <!-- ── 놀이 방법 ── -->
     <div class="reveal d2">
       <div class="px-5 pt-5 pb-3">
-        <p class="text-[12px] font-semibold text-neutral-500 tracking-wide break-keep">놀이 방법</p>
+        <p class="text-[18px] font-bold text-neutral-900 break-keep">놀이 방법</p>
       </div>
       <div id="steps-list" class="flex flex-col gap-0 mx-4">
 
@@ -254,10 +254,22 @@
       </div>
     </div>
 
+    <!-- ── 영상 ── -->
+    <div class="reveal d4">
+      <div class="px-5 pt-5 pb-3">
+        <p class="text-[18px] font-bold text-neutral-900 break-keep">영상 가이드</p>
+      </div>
+      <div class="mx-4 rounded-md overflow-hidden shadow-2 bg-neutral-900" style="aspect-ratio:16/9;">
+        <video class="w-full h-full object-cover" controls playsinline preload="metadata">
+          <source src="images/AQPdPMeuXivXX8Cv0.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
     <!-- ── 연결 교구 상품 ── -->
     <div class="reveal d4">
       <div class="px-5 pt-5 pb-3">
-        <p class="text-[12px] font-semibold text-neutral-500 tracking-wide break-keep">추천 교구</p>
+        <p class="text-[18px] font-bold text-neutral-900 break-keep">추천 교구</p>
       </div>
       <div onclick="location.href='ybm-baby-shopping-detail.html'" class="mx-4 bg-neutral-100 rounded-md shadow-2 overflow-hidden flex items-center gap-3 p-3 cursor-pointer active:opacity-80 transition-opacity">
         <div class="w-16 h-16 rounded-sm overflow-hidden bg-neutral-200 flex-shrink-0">
@@ -275,16 +287,48 @@
       </div>
     </div>
 
-    <div style="height:2rem;"></div>
+    <div style="height:7rem;"></div>
   </div><!-- end scroll area -->
 
-  <!-- ── 하단 시작 버튼 ── -->
-  <div class="flex-shrink-0 bg-neutral-100 border-t border-neutral-300 px-4 py-3">
-    <button class="w-full h-13 rounded-pill bg-primary-500 active:bg-primary-600 flex items-center justify-center gap-2 transition-colors" style="height:52px;">
-      <iconify-icon icon="solar:play-bold" width="16" style="color:white"></iconify-icon>
-      <span class="text-white text-[15px] font-bold break-keep">영상 가이드 보기</span>
+  <!-- ── Bottom Nav ── -->
+  <nav class="absolute bottom-0 left-0 right-0 h-20 bg-neutral-100 border-t border-neutral-300 flex items-start pt-2">
+
+    <!-- 홈 -->
+    <button onclick="location.href='ybm-baby-home.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:home-2-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-400 leading-none break-keep">홈</span>
     </button>
-  </div>
+
+    <!-- 콘텐츠 -->
+    <button onclick="location.href='ybm-baby-contents.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:play-circle-bold" width="22" style="color:#FF7300"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full bg-primary-500 mt-0.5"></span>
+      <span class="text-[11px] font-bold text-primary-500 leading-none break-keep">콘텐츠</span>
+    </button>
+
+    <!-- 쇼핑 -->
+    <button onclick="location.href='ybm-baby-shopping.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:bag-3-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-400 leading-none break-keep">쇼핑</span>
+    </button>
+
+    <!-- 브랜드 -->
+    <button onclick="location.href='ybm-baby-brand.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:star-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-400 leading-none break-keep">브랜드</span>
+    </button>
+
+    <!-- 마이 -->
+    <button onclick="location.href='ybm-baby-mypage.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:user-circle-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-400 leading-none break-keep">마이</span>
+    </button>
+
+  </nav>
 
 </div><!-- end phone -->
 
