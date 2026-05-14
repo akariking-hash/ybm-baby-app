@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>YBM BABY - 브랜드</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+<script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', '"Apple SD Gothic Neo"', '"Noto Sans KR"', 'sans-serif'],
+        },
+        colors: {
+          primary:   { 100:'#FFF1E5', 200:'#FFCBA6', 300:'#FFAB66', 400:'#FF9233', 500:'#FF7300', 600:'#E66800', 900:'#662E00' },
+          secondary: { 100:'#E8F3FF', 300:'#99C4FF', 500:'#4D96FF', 600:'#3D78E0' },
+          tertiary:  { 100:'#E4FAF1', 400:'#4DD49C', 500:'#24C783' },
+          neutral:   { 100:'#FFFFFF', 200:'#F5F7F9', 300:'#DDE1E6', 400:'#BCC2C9', 500:'#8E959E', 600:'#757D85', 800:'#3F4347', 900:'#1A1B1C' },
+        },
+        borderRadius: {
+          'xs': '4px', 'sm': '8px', 'DEFAULT': '12px', 'md': '12px',
+          'lg': '16px', 'xl': '20px', '2xl': '24px', 'pill': '9999px',
+        },
+        boxShadow: {
+          '1': '0px 1px 3px rgba(0,0,0,0.06)',
+          '2': '0px 2px 8px rgba(0,0,0,0.08)',
+          '3': '0px 4px 12px rgba(0,0,0,0.12)',
+          '4': '0px 8px 24px rgba(0,0,0,0.16)',
+        },
+      }
+    }
+  }
+</script>
+<style>
+  .break-keep { word-break: keep-all; }
+  .reveal { opacity:0; transform:translateY(14px); transition:opacity 0.55s cubic-bezier(0.16,1,0.3,1),transform 0.55s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal.d1 { transition-delay:60ms; } .reveal.d2 { transition-delay:120ms; } .reveal.d3 { transition-delay:180ms; } .reveal.d4 { transition-delay:240ms; }
+  .no-sb::-webkit-scrollbar { display:none; }
+  .no-sb { -ms-overflow-style:none; scrollbar-width:none; }
+  .phone { width:390px; height:844px; border-radius:32px; box-shadow:0 32px 80px rgba(0,0,0,0.28),inset 0 0 0 1px rgba(255,255,255,0.55); overflow:hidden; position:relative; display:flex; flex-direction:column; }
+  .glass { background:rgba(255,255,255,0.13); border:1px solid rgba(255,255,255,0.24); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+  .expert-card { background: linear-gradient(135deg, #1A1B1C 0%, #2d2e30 100%); }
+</style>
+</head>
+
+<body class="bg-[#dcdcdc] min-h-screen flex items-center justify-center font-sans">
+<div class="phone bg-neutral-200">
+
+  <!-- ── Status Bar ── -->
+  <div class="bg-neutral-100 flex-shrink-0 flex justify-between items-center px-6 pt-3.5 pb-0">
+    <span class="text-[14px] font-semibold text-neutral-900 tabular-nums">9:41</span>
+    <div class="flex items-center gap-1.5">
+      <svg width="17" height="12" viewBox="0 0 17 12" fill="#1A1B1C">
+        <rect x="0"    y="7" width="3" height="5"  rx="1"/>
+        <rect x="4.5"  y="4" width="3" height="8"  rx="1"/>
+        <rect x="9"    y="2" width="3" height="10" rx="1"/>
+        <rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".28"/>
+      </svg>
+      <svg width="16" height="11" viewBox="0 0 24 16" fill="none" stroke="#1A1B1C" stroke-width="2.2" stroke-linecap="round">
+        <path d="M1.42 5a16 16 0 0121.16 0"/><path d="M5 8.5a11 11 0 0114 0"/><path d="M8.5 12a6 6 0 017 0"/>
+        <circle cx="12" cy="15" r="1.2" fill="#1A1B1C" stroke="none"/>
+      </svg>
+      <svg width="26" height="13" viewBox="0 0 28 14">
+        <rect x="1" y="1" width="22" height="12" rx="3" stroke="#1A1B1C" stroke-width="1.6" fill="none"/>
+        <rect x="2.5" y="2.5" width="18" height="9" rx="2" fill="#1A1B1C"/>
+        <path d="M24 5v4a2 2 0 000-4z" fill="#1A1B1C" opacity=".35"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ── Top Nav ── -->
+  <div class="bg-neutral-100 flex-shrink-0 flex justify-between items-center px-5 pt-2.5 pb-3">
+    <div>
+      <p class="text-[12px] font-semibold text-secondary-500 leading-none tracking-wide">BRAND</p>
+      <h1 class="text-[20px] font-bold text-neutral-900 leading-7 break-keep mt-0.5">YBM BABY 브랜드 스토리</h1>
+    </div>
+    <img src="images/logo.png" alt="YBM BABY" class="h-8 w-auto flex-shrink-0">
+  </div>
+
+  <!-- ── Scroll Area ── -->
+  <div class="flex-1 overflow-y-auto overflow-x-hidden no-sb bg-neutral-200">
+
+    <!-- ── Hero: 브랜드 철학 ── -->
+    <div class="mx-5 mt-4 rounded-lg overflow-hidden reveal visible" style="background:linear-gradient(160deg,#1A1B1C 0%,#3a2010 60%,#FF7300 140%); min-height:220px; position:relative;">
+      <!-- subtle grain overlay -->
+      <div class="absolute inset-0 opacity-10" style="background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%224%22 height=%224%22><rect width=%224%22 height=%224%22 fill=%22%23fff%22 opacity=%220.4%22/><rect x=%222%22 y=%222%22 width=%222%22 height=%222%22 fill=%22%23000%22 opacity=%220.2%22/></svg>');"></div>
+      <div class="relative p-6 pt-7 pb-7">
+        <p class="text-primary-300 text-[11px] font-semibold tracking-widest mb-3 break-keep">BRAND PHILOSOPHY</p>
+        <h2 class="text-white text-[24px] font-bold leading-[1.35] break-keep mb-4">
+          아이의 첫 번째<br>1,000일이<br>평생을 만듭니다
+        </h2>
+        <p class="text-white/60 text-[13px] leading-[21px] break-keep">
+          YBM BABY는 뇌과학과 발달심리학을 기반으로,<br>아이 한 명 한 명의 발달 속도에 맞춘<br>교구와 프로그램을 설계합니다.
+        </p>
+        <!-- Orange accent line -->
+        <div class="mt-5 w-10 h-[3px] rounded-full bg-primary-400"></div>
+      </div>
+    </div>
+
+    <!-- ── YBM이 전문적인 이유 ── -->
+    <div class="reveal d1">
+      <div class="flex justify-between items-end px-5 pt-6 pb-3">
+        <div>
+          <p class="text-[12px] font-normal text-secondary-500 leading-none tracking-wide mb-1">WHY YBM</p>
+          <h3 class="text-[20px] font-bold text-neutral-900 leading-[28px] break-keep">YBM이 전문적인 이유</h3>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-3 px-5">
+
+        <!-- Reason 1 -->
+        <div class="bg-neutral-100 rounded-md shadow-2 p-4 flex gap-3.5">
+          <div class="w-11 h-11 rounded-sm flex items-center justify-center flex-shrink-0" style="background:#E8F3FF;">
+            <iconify-icon icon="solar:book-2-bold" width="22" style="color:#4D96FF"></iconify-icon>
+          </div>
+          <div class="flex-1">
+            <p class="text-[14px] font-bold text-neutral-900 leading-none mb-1.5 break-keep">40년 교육 전문 기업</p>
+            <p class="text-[12px] text-neutral-500 leading-[19px] break-keep">1977년 창립 이후 영어·한국어·유아교육 분야에서 수백만 명의 학습을 이끈 경험이 BABY 교구 설계에 고스란히 담겨 있습니다.</p>
+          </div>
+        </div>
+
+        <!-- Reason 2 -->
+        <div class="bg-neutral-100 rounded-md shadow-2 p-4 flex gap-3.5">
+          <div class="w-11 h-11 rounded-sm flex items-center justify-center flex-shrink-0" style="background:#E4FAF1;">
+            <iconify-icon icon="solar:test-tube-bold" width="22" style="color:#24C783"></iconify-icon>
+          </div>
+          <div class="flex-1">
+            <p class="text-[14px] font-bold text-neutral-900 leading-none mb-1.5 break-keep">뇌과학 기반 커리큘럼</p>
+            <p class="text-[12px] text-neutral-500 leading-[19px] break-keep">각 놀이와 교구는 아동 발달 신경과학 연구를 바탕으로 설계돼, 대근육·소근육·언어·인지 영역을 균형 있게 자극합니다.</p>
+          </div>
+        </div>
+
+        <!-- Reason 3 -->
+        <div class="bg-neutral-100 rounded-md shadow-2 p-4 flex gap-3.5">
+          <div class="w-11 h-11 rounded-sm flex items-center justify-center flex-shrink-0" style="background:#FFF1E5;">
+            <iconify-icon icon="solar:chart-2-bold" width="22" style="color:#FF7300"></iconify-icon>
+          </div>
+          <div class="flex-1">
+            <p class="text-[14px] font-bold text-neutral-900 leading-none mb-1.5 break-keep">개인 맞춤 발달 추적</p>
+            <p class="text-[12px] text-neutral-500 leading-[19px] break-keep">아이의 발달 데이터를 지속 분석해 또래 대비 강점과 보완 영역을 매월 리포트로 제공하고, 다음 달 교구를 자동 큐레이션합니다.</p>
+          </div>
+        </div>
+
+        <!-- Reason 4 -->
+        <div class="bg-neutral-100 rounded-md shadow-2 p-4 flex gap-3.5">
+          <div class="w-11 h-11 rounded-sm flex items-center justify-center flex-shrink-0" style="background:#F3EEFF;">
+            <iconify-icon icon="solar:shield-check-bold" width="22" style="color:#7C3AED"></iconify-icon>
+          </div>
+          <div class="flex-1">
+            <p class="text-[14px] font-bold text-neutral-900 leading-none mb-1.5 break-keep">국제 안전 인증 교구</p>
+            <p class="text-[12px] text-neutral-500 leading-[19px] break-keep">모든 교구는 KC·CE·ASTM 안전 인증을 통과하며, 영유아 전용 무독성 소재만 사용합니다. 부모가 안심하고 맡길 수 있습니다.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── 골든타임 ── -->
+    <div class="reveal d2">
+      <div class="px-5 pt-6 pb-3">
+        <p class="text-[12px] font-normal text-secondary-500 leading-none tracking-wide mb-1">GOLDEN TIME</p>
+        <h3 class="text-[20px] font-bold text-neutral-900 leading-[28px] break-keep">발달 골든타임,<br>지금이 가장 중요합니다</h3>
+        <p class="text-[13px] text-neutral-500 leading-[21px] break-keep mt-2">태어난 후 만 5세까지, 뇌 신경망의 90%가 형성됩니다. 이 시기의 적절한 자극은 평생의 학습 능력과 정서 발달의 토대가 됩니다.</p>
+      </div>
+
+      <!-- Brain development bar -->
+      <div class="mx-5 bg-neutral-100 rounded-md shadow-2 p-4 mb-3">
+        <p class="text-[12px] font-bold text-neutral-800 mb-3 break-keep">연령별 뇌 발달 형성률</p>
+        <div class="flex flex-col gap-3">
+
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-[12px] font-semibold text-neutral-800 break-keep">0~12개월</span>
+              <span class="text-[11px] font-bold text-primary-500 break-keep">신경망 집중 형성기</span>
+            </div>
+            <div class="h-2 bg-neutral-200 rounded-full overflow-hidden">
+              <div class="h-full rounded-full" style="width:90%; background:linear-gradient(90deg,#FF7300,#FF9233);"></div>
+            </div>
+            <p class="text-[11px] text-neutral-400 mt-1 break-keep">감각 통합·애착 형성이 핵심</p>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-[12px] font-semibold text-neutral-800 break-keep">12~24개월</span>
+              <span class="text-[11px] font-bold text-secondary-500 break-keep">운동·언어 폭발 시기</span>
+            </div>
+            <div class="h-2 bg-neutral-200 rounded-full overflow-hidden">
+              <div class="h-full rounded-full" style="width:78%; background:linear-gradient(90deg,#4D96FF,#99C4FF);"></div>
+            </div>
+            <p class="text-[11px] text-neutral-400 mt-1 break-keep">소근육·언어 자극이 시냅스를 넓혀요</p>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-[12px] font-semibold text-neutral-800 break-keep">24~36개월</span>
+              <span class="text-[11px] font-bold text-tertiary-500 break-keep">인지·사회성 급성장</span>
+            </div>
+            <div class="h-2 bg-neutral-200 rounded-full overflow-hidden">
+              <div class="h-full rounded-full" style="width:65%; background:linear-gradient(90deg,#24C783,#4DD49C);"></div>
+            </div>
+            <p class="text-[11px] text-neutral-400 mt-1 break-keep">역할 놀이·논리 사고 회로 형성</p>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-[12px] font-semibold text-neutral-800 break-keep">36~60개월</span>
+              <span class="text-[11px] font-bold text-neutral-500 break-keep">정서·창의 발달기</span>
+            </div>
+            <div class="h-2 bg-neutral-200 rounded-full overflow-hidden">
+              <div class="h-full rounded-full" style="width:48%; background:linear-gradient(90deg,#9B79F5,#BFA8FA);"></div>
+            </div>
+            <p class="text-[11px] text-neutral-400 mt-1 break-keep">자기조절력·공감 능력의 기초 완성</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 골든타임 강조 배너 -->
+      <div class="mx-5 rounded-md overflow-hidden">
+        <div class="p-4" style="background:linear-gradient(135deg,#1A1B1C,#2d1a00);">
+          <div class="flex items-start gap-3">
+            <iconify-icon icon="solar:danger-triangle-bold" width="20" style="color:#FF7300" class="flex-shrink-0 mt-0.5"></iconify-icon>
+            <div>
+              <p class="text-white text-[13px] font-bold leading-none mb-1.5 break-keep">골든타임을 놓치면</p>
+              <p class="text-white/60 text-[12px] leading-[19px] break-keep">만 5세 이후에는 같은 자극을 줘도 신경망 형성 효율이 현저히 떨어집니다. 지금 이 시기의 놀이 하나하나가 아이의 미래를 만드는 투자입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 전문가 라인업 ── -->
+    <div class="reveal d3">
+      <div class="px-5 pt-6 pb-3">
+        <p class="text-[12px] font-normal text-secondary-500 leading-none tracking-wide mb-1">OUR EXPERTS</p>
+        <h3 class="text-[20px] font-bold text-neutral-900 leading-[28px] break-keep">이런 전문가들이<br>함께 만들었습니다</h3>
+        <p class="text-[13px] text-neutral-500 leading-[21px] break-keep mt-2">YBM BABY의 모든 교구와 커리큘럼은 아동발달·언어·뇌과학 분야 전문가 자문단이 직접 검수합니다.</p>
+      </div>
+
+      <div class="flex flex-col gap-3 px-5">
+
+        <!-- Expert 정누리 -->
+        <div class="bg-neutral-100 rounded-md shadow-2 overflow-hidden">
+          <div class="flex items-center gap-3.5 p-4 pb-3">
+            <div class="w-14 h-14 rounded-full overflow-hidden bg-neutral-200 flex-shrink-0">
+              <img src="images/profile4.png" class="w-full h-full object-cover" alt="정누리 박사">
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-0.5">
+                <p class="text-[15px] font-bold text-neutral-900 leading-none">정누리 박사</p>
+                <span class="bg-primary-100 text-primary-500 text-[10px] font-bold rounded-xs px-1.5 py-0.5 flex-shrink-0">대표 자문위원</span>
+              </div>
+              <p class="text-[12px] text-neutral-500 break-keep">발달심리학 박사 · 영유아 부모 코칭 전문가</p>
+            </div>
+          </div>
+          <div class="mx-4 border-t border-neutral-300"></div>
+          <div class="border-l-[3px] border-primary-500 bg-primary-100 mx-4 mt-3 px-3 py-2.5 rounded-r-sm">
+            <p class="text-[12px] text-neutral-700 leading-[19px] break-keep">"아이의 발달은 부모가 얼마나 잘 읽어주느냐에 달려 있어요. 놀이 한 번이 아이에게는 세상을 배우는 전부입니다."</p>
+          </div>
+          <div class="px-4 pt-3 pb-4 flex flex-col gap-2">
+            <div class="flex items-start gap-2">
+              <iconify-icon icon="solar:chat-round-dots-linear" width="14" style="color:#FF7300" class="flex-shrink-0 mt-0.5"></iconify-icon>
+              <p class="text-[12px] text-neutral-600 leading-[18px] break-keep">월 1회 부모와 1:1로 소통하며 아이의 발달 흐름을 함께 점검해요.</p>
+            </div>
+            <div class="flex items-start gap-2">
+              <iconify-icon icon="solar:book-linear" width="14" style="color:#FF7300" class="flex-shrink-0 mt-0.5"></iconify-icon>
+              <p class="text-[12px] text-neutral-600 leading-[18px] break-keep">이론이 아닌 <span class="font-semibold text-neutral-800">실제 놀이 현장</span>에서 검증된 코칭을 전해드려요.</p>
+            </div>
+            <div class="flex items-start gap-2">
+              <iconify-icon icon="solar:heart-linear" width="14" style="color:#FF7300" class="flex-shrink-0 mt-0.5"></iconify-icon>
+              <p class="text-[12px] text-neutral-600 leading-[18px] break-keep">부모의 불안을 줄이고, 아이와의 교감을 더 깊게 만들어 드려요.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Expert 1 -->
+        <div class="bg-neutral-100 rounded-md shadow-2 overflow-hidden">
+          <div class="flex items-center gap-3.5 p-4">
+            <div class="w-14 h-14 rounded-full overflow-hidden bg-neutral-300 flex-shrink-0">
+              <img src="images/5123.png" class="w-full h-full object-cover" alt="김미정 박사">
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-0.5">
+                <p class="text-[15px] font-bold text-neutral-900 leading-none">김미정 박사</p>
+                <span class="bg-secondary-100 text-secondary-500 text-[10px] font-bold rounded-xs px-1.5 py-0.5 flex-shrink-0">자문위원</span>
+              </div>
+              <p class="text-[12px] text-neutral-500 break-keep">아동발달심리학 · 연세대학교 아동가족학과</p>
+            </div>
+          </div>
+          <div class="border-l-[3px] border-primary-400 bg-primary-100 mx-4 mb-4 px-3 py-2.5 rounded-r-sm">
+            <p class="text-[12px] text-neutral-700 leading-[19px] break-keep">교구는 아이의 발달 단계를 정확히 알아야 효과가 있습니다. YBM BABY는 월령별 편차를 데이터로 보정해 개인 맞춤 설계를 실현했습니다.</p>
+          </div>
+        </div>
+
+        <!-- Expert 2 -->
+        <div class="bg-neutral-100 rounded-md shadow-2 overflow-hidden">
+          <div class="flex items-center gap-3.5 p-4">
+            <div class="w-14 h-14 rounded-full overflow-hidden bg-neutral-300 flex-shrink-0">
+              <img src="images/5124.png" class="w-full h-full object-cover" alt="이수진 박사">
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-0.5">
+                <p class="text-[15px] font-bold text-neutral-900 leading-none">이수진 박사</p>
+                <span class="bg-secondary-100 text-secondary-500 text-[10px] font-bold rounded-xs px-1.5 py-0.5 flex-shrink-0">자문위원</span>
+              </div>
+              <p class="text-[12px] text-neutral-500 break-keep">언어발달·조기교육 · 이화여자대학교 유아교육학과</p>
+            </div>
+          </div>
+          <div class="border-l-[3px] border-secondary-500 bg-secondary-100 mx-4 mb-4 px-3 py-2.5 rounded-r-sm">
+            <p class="text-[12px] text-neutral-700 leading-[19px] break-keep">언어는 0세부터 시작됩니다. 소리·리듬·반복 노출이 풍부한 환경이 말문을 열고, 어휘와 사고력의 뿌리가 됩니다.</p>
+          </div>
+        </div>
+
+        <!-- Expert 3 -->
+        <div class="bg-neutral-100 rounded-md shadow-2 overflow-hidden">
+          <div class="flex items-center gap-3.5 p-4">
+            <div class="w-14 h-14 rounded-full overflow-hidden bg-neutral-200 flex-shrink-0 flex items-center justify-center">
+              <iconify-icon icon="solar:user-bold" width="28" style="color:#BCC2C9"></iconify-icon>
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 mb-0.5">
+                <p class="text-[15px] font-bold text-neutral-900 leading-none">박준호 박사</p>
+                <span class="bg-secondary-100 text-secondary-500 text-[10px] font-bold rounded-xs px-1.5 py-0.5 flex-shrink-0">자문위원</span>
+              </div>
+              <p class="text-[12px] text-neutral-500 break-keep">뇌신경과학·인지발달 · 서울대학교 심리학과</p>
+            </div>
+          </div>
+          <div class="border-l-[3px] border-tertiary-500 bg-tertiary-100 mx-4 mb-4 px-3 py-2.5 rounded-r-sm">
+            <p class="text-[12px] text-neutral-700 leading-[19px] break-keep">놀이는 단순한 재미가 아닙니다. 전전두엽 발달과 실행 기능 형성에 직결되는 최고의 뇌 훈련입니다.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── 브랜드 약속 ── -->
+    <div class="reveal d4 mx-5 mt-6 rounded-md overflow-hidden shadow-2">
+      <div class="p-5" style="background:linear-gradient(135deg,#FF7300 0%,#FF9233 100%);">
+        <p class="text-white/70 text-[11px] font-semibold tracking-widest mb-2">OUR PROMISE</p>
+        <h4 class="text-white text-[18px] font-bold leading-[27px] break-keep mb-3">우리가 지키는 약속</h4>
+        <div class="flex flex-col gap-2.5">
+          <div class="flex items-center gap-2.5">
+            <div class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="solar:check-circle-bold" width="14" style="color:white"></iconify-icon>
+            </div>
+            <span class="text-white text-[13px] leading-none break-keep">월령에 꼭 맞는 교구만 제안합니다</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <div class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="solar:check-circle-bold" width="14" style="color:white"></iconify-icon>
+            </div>
+            <span class="text-white text-[13px] leading-none break-keep">안전 인증된 소재만 사용합니다</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <div class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="solar:check-circle-bold" width="14" style="color:white"></iconify-icon>
+            </div>
+            <span class="text-white text-[13px] leading-none break-keep">전문가가 직접 검수한 콘텐츠를 제공합니다</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <div class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="solar:check-circle-bold" width="14" style="color:white"></iconify-icon>
+            </div>
+            <span class="text-white text-[13px] leading-none break-keep">아이의 성장과 함께 커리큘럼을 업데이트합니다</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:7rem;"></div>
+  </div><!-- end scroll area -->
+
+  <!-- ── Bottom Nav ── -->
+  <nav class="absolute bottom-0 left-0 right-0 h-20 bg-neutral-100 border-t border-neutral-300 flex items-start pt-2">
+
+    <!-- 홈 -->
+    <button onclick="location.href='ybm-baby-home.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:home-2-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-400 leading-none break-keep">홈</span>
+    </button>
+
+    <!-- 콘텐츠 -->
+    <button onclick="location.href='ybm-baby-contents.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:play-circle-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-400 leading-none break-keep">콘텐츠</span>
+    </button>
+
+    <!-- 쇼핑 -->
+    <button onclick="location.href='ybm-baby-shopping.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:bag-3-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-400 leading-none break-keep">쇼핑</span>
+    </button>
+
+    <!-- 브랜드 (active) -->
+    <button class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:star-bold" width="22" style="color:#FF7300"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full bg-primary-500 mt-0.5"></span>
+      <span class="text-[11px] font-bold text-primary-500 leading-none break-keep">브랜드</span>
+    </button>
+
+    <!-- 마이 -->
+    <button onclick="location.href='ybm-baby-mypage.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:user-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-400 leading-none break-keep">마이</span>
+    </button>
+
+  </nav>
+
+</div>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08, root: document.querySelector('.no-sb') });
+  const io = observer;
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

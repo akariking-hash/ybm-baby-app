@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>YBM BABY - 콘텐츠</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+<script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', '"Apple SD Gothic Neo"', '"Noto Sans KR"', 'sans-serif'],
+        },
+        colors: {
+          primary:   { 100:'#FFF1E5', 200:'#FFCBA6', 300:'#FFAB66', 400:'#FF9233', 500:'#FF7300', 600:'#E66800', 900:'#662E00' },
+          secondary: { 100:'#E8F3FF', 300:'#99C4FF', 500:'#4D96FF', 600:'#3D78E0' },
+          tertiary:  { 100:'#E4FAF1', 400:'#4DD49C', 500:'#24C783' },
+          neutral:   { 100:'#FFFFFF', 200:'#F5F7F9', 300:'#DDE1E6', 400:'#BCC2C9', 500:'#8E959E', 600:'#757D85', 800:'#3F4347', 900:'#1A1B1C' },
+        },
+        borderRadius: {
+          'xs': '4px', 'sm': '8px', 'DEFAULT': '12px', 'md': '12px',
+          'lg': '16px', 'xl': '20px', '2xl': '24px', 'pill': '9999px',
+        },
+        boxShadow: {
+          '1': '0px 1px 3px rgba(0,0,0,0.06)',
+          '2': '0px 2px 8px rgba(0,0,0,0.08)',
+          '3': '0px 4px 12px rgba(0,0,0,0.12)',
+          '4': '0px 8px 24px rgba(0,0,0,0.16)',
+        },
+      }
+    }
+  }
+</script>
+<style>
+  .break-keep { word-break: keep-all; }
+  .reveal {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal.d1 { transition-delay: 60ms; }
+  .reveal.d2 { transition-delay: 120ms; }
+  .reveal.d3 { transition-delay: 180ms; }
+  .reveal.d4 { transition-delay: 240ms; }
+  .glass {
+    background: rgba(255,255,255,0.13);
+    border: 1px solid rgba(255,255,255,0.24);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.18);
+  }
+  .no-sb::-webkit-scrollbar { display: none; }
+  .no-sb { -ms-overflow-style: none; scrollbar-width: none; }
+  .phone {
+    width: 390px; height: 844px;
+    border-radius: 32px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.28), inset 0 0 0 1px rgba(255,255,255,0.55);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .chip-active { background:#1A1B1C; color:#FFFFFF; }
+  .chip-inactive { background:#FFFFFF; color:#3F4347; border: 1px solid #DDE1E6; }
+</style>
+</head>
+
+<body class="bg-[#dcdcdc] min-h-screen flex items-center justify-center font-sans">
+<div class="phone bg-neutral-200">
+
+  <!-- ── Status Bar ── -->
+  <div class="bg-neutral-100 flex-shrink-0 flex justify-between items-center px-6 pt-3.5 pb-0">
+    <span class="text-[14px] font-semibold text-neutral-900 tabular-nums">9:41</span>
+    <div class="flex items-center gap-1.5">
+      <svg width="17" height="12" viewBox="0 0 17 12" fill="#1A1B1C">
+        <rect x="0"    y="7" width="3" height="5"  rx="1"/>
+        <rect x="4.5"  y="4" width="3" height="8"  rx="1"/>
+        <rect x="9"    y="2" width="3" height="10" rx="1"/>
+        <rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".28"/>
+      </svg>
+      <svg width="16" height="11" viewBox="0 0 24 16" fill="none" stroke="#1A1B1C" stroke-width="2.2" stroke-linecap="round">
+        <path d="M1.42 5a16 16 0 0121.16 0"/><path d="M5 8.5a11 11 0 0114 0"/><path d="M8.5 12a6 6 0 017 0"/>
+        <circle cx="12" cy="15" r="1.2" fill="#1A1B1C" stroke="none"/>
+      </svg>
+      <svg width="26" height="13" viewBox="0 0 28 14">
+        <rect x="1" y="1" width="22" height="12" rx="3" stroke="#1A1B1C" stroke-width="1.6" fill="none"/>
+        <rect x="2.5" y="2.5" width="18" height="9" rx="2" fill="#1A1B1C"/>
+        <path d="M24 5v4a2 2 0 000-4z" fill="#1A1B1C" opacity=".35"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ── Top Nav ── -->
+  <div class="bg-neutral-100 flex-shrink-0 flex justify-between items-center px-5 pt-2.5 pb-3.5">
+    <div>
+      <p class="text-[12px] font-semibold text-secondary-500 leading-none tracking-wide tabular-nums">CONTENTS · 2026.05.12</p>
+      <h1 class="text-[20px] font-bold text-neutral-900 leading-7 break-keep mt-0.5">오늘 뭐 하고 놀까?</h1>
+    </div>
+    <button class="w-[38px] h-[38px] rounded-full flex items-center justify-center">
+      <iconify-icon icon="solar:tuning-2-linear" width="21" style="color:#3F4347"></iconify-icon>
+    </button>
+  </div>
+
+  <!-- ── Scroll Area ── -->
+  <div class="flex-1 overflow-y-auto overflow-x-hidden no-sb bg-neutral-200">
+
+    <!-- ── Hero Card ── -->
+    <div class="mx-5 mt-4 rounded-lg overflow-hidden relative shadow-3 reveal visible" style="aspect-ratio:4/3; background:#1A1B1C;">
+      <video class="w-full h-full object-cover" autoplay muted loop playsinline>
+        <source src="images/AQNqlp0.mp4" type="video/mp4">
+      </video>
+
+      <!-- Mute toggle -->
+      <button id="contMuteBtn" onclick="toggleMute()" class="glass absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center z-10">
+        <iconify-icon id="contMuteIcon" icon="solar:volume-cross-bold" width="15" style="color:white"></iconify-icon>
+      </button>
+      <script>
+        function toggleMute() {
+          const v = document.querySelector('.phone video');
+          v.muted = !v.muted;
+          document.getElementById('contMuteIcon').setAttribute('icon', v.muted ? 'solar:volume-cross-bold' : 'solar:volume-loud-bold');
+        }
+      </script>
+
+      <!-- Gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/80 pointer-events-none"></div>
+
+      <!-- Content -->
+      <div class="absolute inset-0 flex flex-col justify-end p-4 gap-1.5">
+        <span class="glass text-white/90 text-[11px] font-medium rounded-pill px-2.5 py-1 w-fit break-keep">오늘의 추천 활동</span>
+        <h2 class="text-white text-[22px] font-bold leading-[1.3] break-keep">색구슬 쏙쏙 분류 놀이</h2>
+        <div class="flex items-center gap-2">
+          <span class="text-white/70 text-[12px] font-normal break-keep">소근육 · 색인지 · 10분</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Filter Chips ── -->
+    <div class="flex gap-2 overflow-x-auto no-sb px-5 py-3 reveal d1">
+      <button onclick="setChip(this)" class="chip-active text-[13px] font-semibold rounded-pill px-4 py-1.5 whitespace-nowrap flex-shrink-0 transition-all">전체</button>
+      <button onclick="setChip(this)" class="chip-inactive text-[13px] font-medium rounded-pill px-4 py-1.5 whitespace-nowrap flex-shrink-0 transition-all">소근육</button>
+      <button onclick="setChip(this)" class="chip-inactive text-[13px] font-medium rounded-pill px-4 py-1.5 whitespace-nowrap flex-shrink-0 transition-all">대근육</button>
+      <button onclick="setChip(this)" class="chip-inactive text-[13px] font-medium rounded-pill px-4 py-1.5 whitespace-nowrap flex-shrink-0 transition-all">언어</button>
+      <button onclick="setChip(this)" class="chip-inactive text-[13px] font-medium rounded-pill px-4 py-1.5 whitespace-nowrap flex-shrink-0 transition-all">감각</button>
+      <button onclick="setChip(this)" class="chip-inactive text-[13px] font-medium rounded-pill px-4 py-1.5 whitespace-nowrap flex-shrink-0 transition-all">사회성</button>
+      <button onclick="setChip(this)" class="chip-inactive text-[13px] font-medium rounded-pill px-4 py-1.5 whitespace-nowrap flex-shrink-0 transition-all">인지</button>
+    </div>
+
+    <!-- ── Weekly Calendar ── -->
+    <div class="reveal d2">
+      <div class="px-5 pb-3">
+        <p class="text-[12px] font-normal text-secondary-500 leading-[18px] tracking-wide break-keep">5월 둘째 주</p>
+        <h3 class="text-[20px] font-bold text-neutral-900 leading-[28px] break-keep">이번 주 활동 캘린더</h3>
+      </div>
+
+      <!-- Date Row -->
+      <div class="mx-5 bg-neutral-100 rounded-md shadow-2 px-3 pt-4 pb-0">
+        <div class="grid grid-cols-7 gap-0 mb-4">
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-[11px] font-normal text-neutral-500">월</span>
+            <span class="w-8 h-8 flex items-center justify-center text-[14px] font-medium text-neutral-700 tabular-nums">11</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-[11px] font-semibold text-primary-500">화</span>
+            <span class="w-8 h-8 flex items-center justify-center text-[14px] font-bold text-white bg-neutral-900 rounded-full tabular-nums">12</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-[11px] font-normal text-neutral-500">수</span>
+            <span class="w-8 h-8 flex items-center justify-center text-[14px] font-medium text-neutral-700 tabular-nums">13</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-[11px] font-normal text-neutral-500">목</span>
+            <span class="w-8 h-8 flex items-center justify-center text-[14px] font-medium text-neutral-700 tabular-nums">14</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-[11px] font-normal text-neutral-500">금</span>
+            <span class="w-8 h-8 flex items-center justify-center text-[14px] font-medium text-neutral-700 tabular-nums">15</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-[11px] font-normal text-red-400">토</span>
+            <span class="w-8 h-8 flex items-center justify-center text-[14px] font-medium text-red-400 tabular-nums">16</span>
+          </div>
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-[11px] font-normal text-red-400">일</span>
+            <span class="w-8 h-8 flex items-center justify-center text-[14px] font-medium text-red-400 tabular-nums">17</span>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="border-t border-neutral-200"></div>
+
+        <!-- Activity 1 -->
+        <div class="flex items-center gap-3 py-3.5 border-b border-neutral-200">
+          <div class="w-11 h-11 rounded-full bg-[#E4FAF1] flex items-center justify-center flex-shrink-0">
+            <iconify-icon icon="solar:smile-circle-linear" width="22" style="color:#24C783"></iconify-icon>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-[11px] font-normal text-neutral-500 tabular-nums">오전 10:00</span>
+              <span class="bg-primary-100 text-primary-500 text-[11px] font-bold rounded-xs px-1.5 py-0.5 break-keep">소근육</span>
+            </div>
+            <p class="text-[14px] font-semibold text-neutral-900 leading-5 break-keep">색구슬 쏙쏙 분류 놀이</p>
+            <p class="text-[12px] font-normal text-neutral-500 leading-4 break-keep">10분 · 영상 가이드 포함</p>
+            <div class="flex items-center gap-1 mt-1">
+              <iconify-icon icon="solar:box-minimalistic-linear" width="11" style="color:#BCC2C9"></iconify-icon>
+              <p class="text-[11px] text-neutral-400 break-keep">YBM 색구슬 세트 · 분류 트레이</p>
+            </div>
+          </div>
+          <button class="w-9 h-9 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 active:bg-primary-600 active:scale-95 transition-all">
+            <iconify-icon icon="solar:play-bold" width="14" style="color:white"></iconify-icon>
+          </button>
+        </div>
+
+        <!-- Activity 2 -->
+        <div class="flex items-center gap-3 py-3.5 border-b border-neutral-200">
+          <div class="w-11 h-11 rounded-full bg-[#FFE8D4] flex items-center justify-center flex-shrink-0">
+            <iconify-icon icon="solar:hand-stars-linear" width="22" style="color:#FF7300"></iconify-icon>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-[11px] font-normal text-neutral-500 tabular-nums">오후 1:30</span>
+              <span class="bg-primary-100 text-primary-500 text-[11px] font-bold rounded-xs px-1.5 py-0.5 break-keep">소근육</span>
+            </div>
+            <p class="text-[14px] font-semibold text-neutral-900 leading-5 break-keep">콩 옮기기 놀이</p>
+            <p class="text-[12px] font-normal text-neutral-500 leading-4 break-keep">8분 · 영상 가이드 포함</p>
+            <div class="flex items-center gap-1 mt-1">
+              <iconify-icon icon="solar:box-minimalistic-linear" width="11" style="color:#BCC2C9"></iconify-icon>
+              <p class="text-[11px] text-neutral-400 break-keep">국산 건조콩 · 숟가락 · 종이컵 2개</p>
+            </div>
+          </div>
+          <button class="w-9 h-9 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 active:bg-primary-600 active:scale-95 transition-all">
+            <iconify-icon icon="solar:play-bold" width="14" style="color:white"></iconify-icon>
+          </button>
+        </div>
+
+        <!-- Activity 3 -->
+        <div class="flex items-center gap-3 py-3.5">
+          <div class="w-11 h-11 rounded-full bg-[#E8F3FF] flex items-center justify-center flex-shrink-0">
+            <iconify-icon icon="solar:book-linear" width="22" style="color:#4D96FF"></iconify-icon>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5">
+              <span class="text-[11px] font-normal text-neutral-500 tabular-nums">오후 4:00</span>
+              <span class="bg-secondary-100 text-secondary-500 text-[11px] font-bold rounded-xs px-1.5 py-0.5 break-keep">언어</span>
+            </div>
+            <p class="text-[14px] font-semibold text-neutral-900 leading-5 break-keep">그림책 읽기 챌린지</p>
+            <p class="text-[12px] font-normal text-neutral-500 leading-4 break-keep">15분 · 따라 말하기 포함</p>
+            <div class="flex items-center gap-1 mt-1">
+              <iconify-icon icon="solar:box-minimalistic-linear" width="11" style="color:#BCC2C9"></iconify-icon>
+              <p class="text-[11px] text-neutral-400 break-keep">YBM 첫 동물 그림책 · 포인팅 스티커</p>
+            </div>
+          </div>
+          <button class="w-9 h-9 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0 active:bg-primary-600 active:scale-95 transition-all">
+            <iconify-icon icon="solar:play-bold" width="14" style="color:white"></iconify-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Expert Magazine ── -->
+    <div class="reveal d3">
+      <div class="flex justify-between items-end px-5 pt-6 pb-3">
+        <div>
+          <p class="text-[12px] font-normal text-secondary-500 leading-[18px] tracking-wide break-keep">MAGAZINE</p>
+          <h3 class="text-[20px] font-bold text-neutral-900 leading-[28px] break-keep">전문가 큐레이션</h3>
+        </div>
+        <button class="text-[14px] font-normal text-neutral-500 leading-[22px]">전체 →</button>
+      </div>
+
+      <!-- Magazine Card 1 (Featured, large) -->
+      <div class="mx-5 mb-3 bg-neutral-100 rounded-md shadow-2 overflow-hidden cursor-pointer active:opacity-80 transition-opacity">
+        <div class="relative w-full overflow-hidden" style="aspect-ratio:16/9;">
+          <img src="images/625234.jpg" class="w-full h-full object-cover" alt="매거진 피처2" loading="lazy" decoding="async">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+          <span class="absolute top-3 left-3 bg-tertiary-500 text-white text-[11px] font-bold rounded-xs px-2 py-1 break-keep">소근육 발달</span>
+        </div>
+        <div class="p-4">
+          <p class="text-[15px] font-bold text-neutral-900 leading-[1.4] break-keep mb-2">손끝 자극이 두뇌를 키운다,<br>15~18개월 소근육 완전 정복</p>
+          <div class="flex items-center gap-2">
+            <div class="w-6 h-6 rounded-full bg-neutral-200 overflow-hidden flex-shrink-0">
+              <img src="images/5124.png" class="w-full h-full object-cover" alt="이수진 박사" loading="lazy" decoding="async">
+            </div>
+            <span class="text-[12px] font-normal text-neutral-600 break-keep">이수진 박사</span>
+            <span class="text-neutral-300 text-[12px]">·</span>
+            <span class="text-[12px] font-normal text-neutral-500 tabular-nums">4분 읽기</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Magazine Card 2 (Featured, large) -->
+      <div class="mx-5 bg-neutral-100 rounded-md shadow-2 overflow-hidden cursor-pointer active:opacity-80 transition-opacity">
+        <div class="relative w-full overflow-hidden" style="aspect-ratio:16/9;">
+          <img src="images/123214.jpg" class="w-full h-full object-cover" alt="매거진 피처" loading="lazy" decoding="async">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+          <span class="absolute top-3 left-3 bg-primary-500 text-white text-[11px] font-bold rounded-xs px-2 py-1 break-keep">발달 전문가 칼럼</span>
+        </div>
+        <div class="p-4">
+          <p class="text-[15px] font-bold text-neutral-900 leading-[1.4] break-keep mb-2">24개월 아이의 언어 폭발기,<br>부모가 꼭 알아야 할 5가지</p>
+          <div class="flex items-center gap-2">
+            <div class="w-6 h-6 rounded-full bg-neutral-200 overflow-hidden flex-shrink-0">
+              <img src="images/5123.png" class="w-full h-full object-cover" alt="김미정 박사" loading="lazy" decoding="async">
+            </div>
+            <span class="text-[12px] font-normal text-neutral-600 break-keep">김미정 박사</span>
+            <span class="text-neutral-300 text-[12px]">·</span>
+            <span class="text-[12px] font-normal text-neutral-500 tabular-nums">5분 읽기</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Community ── -->
+    <div class="reveal">
+      <div class="flex justify-between items-end px-5 pt-6 pb-3">
+        <div>
+          <p class="text-[12px] font-normal text-secondary-500 leading-[18px] tracking-wide break-keep">COMMUNITY</p>
+          <h3 class="text-[20px] font-bold text-neutral-900 leading-[28px] break-keep">지금 뜨는 육아 후기</h3>
+        </div>
+        <button class="text-[14px] font-normal text-neutral-500 leading-[22px]">전체 →</button>
+      </div>
+      <!-- Community posts -->
+      <div class="flex flex-col gap-3 px-5">
+
+        <!-- Post 1 -->
+        <div class="bg-neutral-100 rounded-md shadow-2 p-4 cursor-pointer active:opacity-80 transition-opacity">
+          <div class="flex items-center gap-2 mb-2.5">
+            <div class="w-8 h-8 rounded-full overflow-hidden bg-neutral-300 flex-shrink-0">
+              <img src="images/profile1.png" class="w-full h-full object-cover" alt="유저">
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-[13px] font-semibold text-neutral-900 leading-none mb-0.5">콩이맘🌿</p>
+              <p class="text-[11px] text-neutral-400 leading-none">17개월 · 3일 전</p>
+            </div>
+            <span class="bg-primary-100 text-primary-500 text-[11px] font-bold rounded-xs px-1.5 py-0.5 flex-shrink-0 break-keep">소근육</span>
+          </div>
+          <p class="text-[13px] text-neutral-700 leading-[20px] break-keep mb-2.5">콩 옮기기 활동 해봤는데 우리 아이 완전 집중해서 했어요 😲 숟가락 잡는 힘이 확실히 늘었고, 20분 동안 혼자 놀더라고요. 강추합니다!!</p>
+          <div class="flex items-center gap-1 mb-2.5 overflow-x-auto no-sb">
+            <img src="images/4312.jpg" class="w-16 h-16 rounded-sm object-cover flex-shrink-0" alt="후기 이미지">
+            <img src="images/634532.jpg" class="w-16 h-16 rounded-sm object-cover flex-shrink-0" alt="후기 이미지">
+          </div>
+          <div class="flex items-center gap-3">
+            <button class="flex items-center gap-1 text-[12px] text-neutral-400">
+              <iconify-icon icon="solar:heart-linear" width="14"></iconify-icon>
+              <span>24</span>
+            </button>
+            <button class="flex items-center gap-1 text-[12px] text-neutral-400">
+              <iconify-icon icon="solar:chat-round-linear" width="14"></iconify-icon>
+              <span>8</span>
+            </button>
+            <button class="flex items-center gap-1 text-[12px] text-neutral-400 ml-auto">
+              <iconify-icon icon="solar:bookmark-linear" width="14"></iconify-icon>
+              <span>저장</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="bg-neutral-100 rounded-md shadow-2 p-4 cursor-pointer active:opacity-80 transition-opacity">
+          <div class="flex items-center gap-2 mb-2.5">
+            <div class="w-8 h-8 rounded-full overflow-hidden bg-neutral-300 flex-shrink-0">
+              <img src="images/profile2.png" class="w-full h-full object-cover" alt="유저">
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-[13px] font-semibold text-neutral-900 leading-none mb-0.5">하람파파💛</p>
+              <p class="text-[11px] text-neutral-400 leading-none">20개월 · 5일 전</p>
+            </div>
+            <span class="bg-tertiary-100 text-tertiary-500 text-[11px] font-bold rounded-xs px-1.5 py-0.5 flex-shrink-0 break-keep">인지</span>
+          </div>
+          <p class="text-[13px] text-neutral-700 leading-[20px] break-keep mb-2.5">색구슬 쏙쏙 분류 놀이 해봤는데 생각보다 엄청 집중하더라고요 🔵🔴 색깔 이름 말해주면서 같이 넣었더니 "빨강~" 따라 말하기 시작했어요. 손도 야무지게 쓰고 색깔 인지까지 같이 되는 게 너무 좋아요!</p>
+          <div class="flex items-center gap-3">
+            <button class="flex items-center gap-1 text-[12px] text-neutral-400">
+              <iconify-icon icon="solar:heart-linear" width="14"></iconify-icon>
+              <span>41</span>
+            </button>
+            <button class="flex items-center gap-1 text-[12px] text-neutral-400">
+              <iconify-icon icon="solar:chat-round-linear" width="14"></iconify-icon>
+              <span>13</span>
+            </button>
+            <button class="flex items-center gap-1 text-[12px] text-neutral-400 ml-auto">
+              <iconify-icon icon="solar:bookmark-linear" width="14"></iconify-icon>
+              <span>저장</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="bg-neutral-100 rounded-md shadow-2 p-4 cursor-pointer active:opacity-80 transition-opacity">
+          <div class="flex items-center gap-2 mb-2.5">
+            <div class="w-8 h-8 rounded-full overflow-hidden bg-neutral-300 flex-shrink-0">
+              <img src="images/profile3.png" class="w-full h-full object-cover" alt="유저">
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-[13px] font-semibold text-neutral-900 leading-none mb-0.5">서준맘😊</p>
+              <p class="text-[11px] text-neutral-400 leading-none">22개월 · 1주 전</p>
+            </div>
+            <span class="bg-secondary-100 text-secondary-500 text-[11px] font-bold rounded-xs px-1.5 py-0.5 flex-shrink-0 break-keep">언어</span>
+          </div>
+          <p class="text-[13px] text-neutral-700 leading-[20px] break-keep">그림책 읽기 챌린지 꾸준히 하고 있어요. 포인팅 스티커 붙이면서 같이 읽으니까 집중력도 올라가고 단어도 빠르게 늘었어요 📚 매일 자기 전에 루틴으로 잡았더니 잠도 잘 자요 ㅎㅎ</p>
+          <div class="flex items-center gap-3 mt-2.5">
+            <button class="flex items-center gap-1 text-[12px] text-neutral-400">
+              <iconify-icon icon="solar:heart-linear" width="14"></iconify-icon>
+              <span>57</span>
+            </button>
+            <button class="flex items-center gap-1 text-[12px] text-neutral-400">
+              <iconify-icon icon="solar:chat-round-linear" width="14"></iconify-icon>
+              <span>19</span>
+            </button>
+            <button class="flex items-center gap-1 text-[12px] text-neutral-400 ml-auto">
+              <iconify-icon icon="solar:bookmark-linear" width="14"></iconify-icon>
+              <span>저장</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="height:7rem;"></div>
+  </div><!-- end scroll area -->
+
+  <!-- ── Bottom Nav ── -->
+  <nav class="absolute bottom-0 left-0 right-0 h-20 bg-neutral-100 border-t border-neutral-300 flex items-start pt-2">
+
+    <!-- 홈 -->
+    <button onclick="location.href='ybm-baby-home.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:home-2-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-500 leading-none break-keep">홈</span>
+    </button>
+
+    <!-- 콘텐츠 (active) -->
+    <button class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:play-circle-bold" width="22" style="color:#FF7300"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full bg-primary-500 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-primary-500 leading-none break-keep">콘텐츠</span>
+    </button>
+
+    <!-- 쇼핑 -->
+    <button onclick="location.href='ybm-baby-shopping.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:bag-3-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-500 leading-none break-keep">쇼핑</span>
+    </button>
+
+    <!-- 브랜드 -->
+    <button onclick="location.href='ybm-baby-brand.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:star-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-500 leading-none break-keep">브랜드</span>
+    </button>
+
+    <!-- 마이 -->
+    <button onclick="location.href='ybm-baby-mypage.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:user-circle-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-500 leading-none break-keep">마이</span>
+    </button>
+
+  </nav>
+
+</div><!-- end phone -->
+
+<script>
+  // Filter chip toggle
+  function setChip(el) {
+    document.querySelectorAll('[onclick="setChip(this)"]').forEach(c => {
+      c.className = c.className.replace('chip-active', 'chip-inactive');
+    });
+    el.className = el.className.replace('chip-inactive', 'chip-active');
+  }
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, root: document.querySelector('.no-sb') });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

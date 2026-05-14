@@ -1,0 +1,740 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>YBM BABY - 쇼핑</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+<script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', '"Apple SD Gothic Neo"', '"Noto Sans KR"', 'sans-serif'],
+        },
+        colors: {
+          primary:   { 100:'#FFF1E5', 200:'#FFCBA6', 300:'#FFAB66', 400:'#FF9233', 500:'#FF7300', 600:'#E66800', 900:'#662E00' },
+          secondary: { 100:'#E8F3FF', 300:'#99C4FF', 500:'#4D96FF', 600:'#3D78E0' },
+          tertiary:  { 100:'#E4FAF1', 400:'#4DD49C', 500:'#24C783' },
+          neutral:   { 100:'#FFFFFF', 200:'#F5F7F9', 300:'#DDE1E6', 400:'#BCC2C9', 500:'#8E959E', 600:'#757D85', 800:'#3F4347', 900:'#1A1B1C' },
+        },
+        borderRadius: {
+          'xs': '4px', 'sm': '8px', 'DEFAULT': '12px', 'md': '12px',
+          'lg': '16px', 'xl': '20px', '2xl': '24px', 'pill': '9999px',
+        },
+        boxShadow: {
+          '1': '0px 1px 3px rgba(0,0,0,0.06)',
+          '2': '0px 2px 8px rgba(0,0,0,0.08)',
+          '3': '0px 4px 12px rgba(0,0,0,0.12)',
+          '4': '0px 8px 24px rgba(0,0,0,0.16)',
+        },
+      }
+    }
+  }
+</script>
+<style>
+  .break-keep { word-break: keep-all; }
+  .reveal { opacity:0; transform:translateY(14px); transition:opacity 0.5s cubic-bezier(0.16,1,0.3,1),transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal.d1 { transition-delay:60ms; } .reveal.d2 { transition-delay:120ms; } .reveal.d3 { transition-delay:180ms; }
+  .no-sb::-webkit-scrollbar { display:none; }
+  .no-sb { -ms-overflow-style:none; scrollbar-width:none; }
+  .phone { width:390px; height:844px; border-radius:32px; box-shadow:0 32px 80px rgba(0,0,0,0.28),inset 0 0 0 1px rgba(255,255,255,0.55); overflow:hidden; position:relative; display:flex; flex-direction:column; }
+  .tab-active { color:#1A1B1C; border-bottom:2px solid #FF7300; font-weight:700; }
+  .tab-inactive { color:#8E959E; border-bottom:2px solid transparent; font-weight:400; }
+  .star { color:#FFB800; }
+</style>
+</head>
+
+<body class="bg-[#dcdcdc] min-h-screen flex items-center justify-center font-sans">
+<div class="phone bg-neutral-200">
+
+  <!-- ── Status Bar ── -->
+  <div class="bg-neutral-100 flex-shrink-0 flex justify-between items-center px-6 pt-3.5 pb-0">
+    <span class="text-[14px] font-semibold text-neutral-900 tabular-nums">9:41</span>
+    <div class="flex items-center gap-1.5">
+      <svg width="17" height="12" viewBox="0 0 17 12" fill="#1A1B1C">
+        <rect x="0"    y="7" width="3" height="5"  rx="1"/>
+        <rect x="4.5"  y="4" width="3" height="8"  rx="1"/>
+        <rect x="9"    y="2" width="3" height="10" rx="1"/>
+        <rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".28"/>
+      </svg>
+      <svg width="16" height="11" viewBox="0 0 24 16" fill="none" stroke="#1A1B1C" stroke-width="2.2" stroke-linecap="round">
+        <path d="M1.42 5a16 16 0 0121.16 0"/><path d="M5 8.5a11 11 0 0114 0"/><path d="M8.5 12a6 6 0 017 0"/>
+        <circle cx="12" cy="15" r="1.2" fill="#1A1B1C" stroke="none"/>
+      </svg>
+      <svg width="26" height="13" viewBox="0 0 28 14">
+        <rect x="1" y="1" width="22" height="12" rx="3" stroke="#1A1B1C" stroke-width="1.6" fill="none"/>
+        <rect x="2.5" y="2.5" width="18" height="9" rx="2" fill="#1A1B1C"/>
+        <path d="M24 5v4a2 2 0 000-4z" fill="#1A1B1C" opacity=".35"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ── Top Nav ── -->
+  <div class="bg-neutral-100 flex-shrink-0 flex justify-between items-center px-5 pt-2.5 pb-3">
+    <div>
+      <p class="text-[12px] font-semibold text-secondary-500 leading-none tracking-wide tabular-nums">SHOPPING</p>
+      <h1 class="text-[20px] font-bold text-neutral-900 leading-7 break-keep mt-0.5">지호에게 딱 맞는 쇼핑</h1>
+    </div>
+    <div class="flex items-center gap-2">
+      <button class="w-9 h-9 flex items-center justify-center">
+        <iconify-icon icon="solar:magnifer-linear" width="22" style="color:#3F4347"></iconify-icon>
+      </button>
+      <button class="w-9 h-9 flex items-center justify-center relative">
+        <iconify-icon icon="solar:cart-large-2-linear" width="22" style="color:#3F4347"></iconify-icon>
+        <span class="absolute top-1 right-1 w-4 h-4 bg-primary-500 rounded-full text-white text-[10px] font-bold flex items-center justify-center">2</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Main Tabs: 상품 / 멤버십 ── -->
+  <div class="bg-neutral-100 flex-shrink-0 border-b border-neutral-300">
+    <div class="flex">
+      <button id="mtab-product" onclick="switchMainTab('product')" class="flex-1 py-3 text-[15px] font-bold text-neutral-900 border-b-2 border-primary-500 break-keep">교구</button>
+      <button id="mtab-membership" onclick="switchMainTab('membership')" class="flex-1 py-3 text-[15px] font-normal text-neutral-400 border-b-2 border-transparent break-keep">멤버십</button>
+    </div>
+  </div>
+
+  <!-- ── Product Filters (상품 탭 전용) ── -->
+  <div id="product-filters" class="bg-neutral-100 flex-shrink-0 border-b border-neutral-300">
+    <div class="flex gap-2 overflow-x-auto no-sb px-4 py-2.5">
+      <button class="flex-shrink-0 text-[12px] font-semibold px-3 py-1 rounded-pill bg-neutral-900 text-white">전체</button>
+      <button class="flex-shrink-0 text-[12px] font-medium px-3 py-1 rounded-pill bg-neutral-200 text-neutral-600">소근육</button>
+      <button class="flex-shrink-0 text-[12px] font-medium px-3 py-1 rounded-pill bg-neutral-200 text-neutral-600">대근육</button>
+      <button class="flex-shrink-0 text-[12px] font-medium px-3 py-1 rounded-pill bg-neutral-200 text-neutral-600">언어</button>
+      <button class="flex-shrink-0 text-[12px] font-medium px-3 py-1 rounded-pill bg-neutral-200 text-neutral-600">인지</button>
+      <button class="flex-shrink-0 text-[12px] font-medium px-3 py-1 rounded-pill bg-neutral-200 text-neutral-600">감각</button>
+    </div>
+  </div>
+
+  <!-- ── Scroll Area ── -->
+  <div class="flex-1 overflow-y-auto overflow-x-hidden no-sb bg-neutral-200">
+
+    <!-- ══ 상품 패널 ══ -->
+    <div id="panel-product">
+
+    <!-- Sort bar -->
+    <div class="flex items-center justify-between px-5 py-2.5 reveal visible">
+      <span class="text-[12px] text-neutral-500">총 <span class="font-bold text-neutral-900">24</span>개 상품</span>
+      <button class="flex items-center gap-1 text-[12px] text-neutral-600 font-medium">
+        추천순 <iconify-icon icon="solar:alt-arrow-down-linear" width="13"></iconify-icon>
+      </button>
+    </div>
+
+    <!-- ── Product Grid ── -->
+    <div class="px-4 grid grid-cols-2 gap-3 reveal d1">
+
+      <!-- Product 1 -->
+      <div onclick="location.href='ybm-baby-shopping-detail.html'" class="bg-neutral-100 rounded-md shadow-1 overflow-hidden cursor-pointer active:opacity-80 transition-opacity">
+        <div class="w-full aspect-square overflow-hidden bg-neutral-200 relative">
+          <img src="images/123.jpg" class="w-full h-full object-cover" alt="오감 자극 감각 놀이 세트" loading="lazy">
+          <button class="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/80 flex items-center justify-center">
+            <iconify-icon icon="solar:heart-linear" width="15" style="color:#BCC2C9"></iconify-icon>
+          </button>
+          <span class="absolute top-2 left-2 bg-primary-500 text-white text-[10px] font-bold rounded-xs px-1.5 py-0.5">BEST</span>
+        </div>
+        <div class="p-2.5">
+          <p class="text-[11px] text-neutral-400 mb-0.5">YBM BABY</p>
+          <p class="text-[13px] font-semibold text-neutral-900 leading-[18px] break-keep mb-1.5">오감 자극 감각 놀이 세트</p>
+          <div class="flex items-center gap-1.5 mb-1">
+            <span class="text-[13px] font-bold text-neutral-900">128,000원</span>
+          </div>
+          <div class="flex items-center gap-0.5">
+            <iconify-icon icon="solar:star-bold" width="11" style="color:#FFB800"></iconify-icon>
+            <span class="text-[11px] text-neutral-500">4.8</span>
+            <span class="text-[11px] text-neutral-400 ml-0.5">후기 42</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div onclick="location.href='ybm-baby-shopping-detail.html'" class="bg-neutral-100 rounded-md shadow-1 overflow-hidden cursor-pointer active:opacity-80 transition-opacity">
+        <div class="w-full aspect-square overflow-hidden bg-neutral-200 relative">
+          <img src="images/124.jpg" class="w-full h-full object-cover" alt="소근육 발달 컬러 블록" loading="lazy">
+          <button class="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/80 flex items-center justify-center">
+            <iconify-icon icon="solar:heart-linear" width="15" style="color:#BCC2C9"></iconify-icon>
+          </button>
+          <span class="absolute top-2 left-2 bg-neutral-900 text-white text-[10px] font-bold rounded-xs px-1.5 py-0.5">NEW</span>
+        </div>
+        <div class="p-2.5">
+          <p class="text-[11px] text-neutral-400 mb-0.5">YBM BABY</p>
+          <p class="text-[13px] font-semibold text-neutral-900 leading-[18px] break-keep mb-1.5">소근육 발달 컬러 블록 48pcs</p>
+          <div class="flex items-center gap-1.5 mb-1">
+            <span class="text-[13px] font-bold text-neutral-900">98,000원</span>
+          </div>
+          <div class="flex items-center gap-0.5">
+            <iconify-icon icon="solar:star-bold" width="11" style="color:#FFB800"></iconify-icon>
+            <span class="text-[11px] text-neutral-500">4.6</span>
+            <span class="text-[11px] text-neutral-400 ml-0.5">후기 28</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div onclick="location.href='ybm-baby-shopping-detail.html'" class="bg-neutral-100 rounded-md shadow-1 overflow-hidden cursor-pointer active:opacity-80 transition-opacity">
+        <div class="w-full aspect-square overflow-hidden bg-neutral-200 relative">
+          <img src="images/125.jpg" class="w-full h-full object-cover" alt="인지 발달 원목 퍼즐" loading="lazy">
+          <button class="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/80 flex items-center justify-center">
+            <iconify-icon icon="solar:heart-linear" width="15" style="color:#BCC2C9"></iconify-icon>
+          </button>
+        </div>
+        <div class="p-2.5">
+          <p class="text-[11px] text-neutral-400 mb-0.5">YBM BABY</p>
+          <p class="text-[13px] font-semibold text-neutral-900 leading-[18px] break-keep mb-1.5">인지 발달 원목 퍼즐 세트</p>
+          <div class="flex items-center gap-1.5 mb-1">
+            <span class="text-[12px] font-bold text-primary-500">22%</span>
+            <span class="text-[13px] font-bold text-neutral-900">115,000원</span>
+          </div>
+          <div class="flex items-center gap-0.5 mt-1">
+            <iconify-icon icon="solar:star-bold" width="11" style="color:#FFB800"></iconify-icon>
+            <span class="text-[11px] text-neutral-500">4.9</span>
+            <span class="text-[11px] text-neutral-400 ml-0.5">후기 61</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div onclick="location.href='ybm-baby-shopping-detail.html'" class="bg-neutral-100 rounded-md shadow-1 overflow-hidden cursor-pointer active:opacity-80 transition-opacity">
+        <div class="w-full aspect-square overflow-hidden bg-neutral-200 relative">
+          <img src="images/51223.jpg" class="w-full h-full object-cover" alt="말문이 트이는 동물 그림 카드" loading="lazy">
+          <button class="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/80 flex items-center justify-center">
+            <iconify-icon icon="solar:heart-bold" width="15" style="color:#FF7300"></iconify-icon>
+          </button>
+          <span class="absolute top-2 left-2 bg-tertiary-500 text-white text-[10px] font-bold rounded-xs px-1.5 py-0.5">추천</span>
+        </div>
+        <div class="p-2.5">
+          <p class="text-[11px] text-neutral-400 mb-0.5">YBM BABY</p>
+          <p class="text-[13px] font-semibold text-neutral-900 leading-[18px] break-keep mb-1.5">말문이 트이는 동물 그림 카드</p>
+          <div class="flex items-center gap-1.5 mb-1">
+            <span class="text-[12px] font-bold text-primary-500">15%</span>
+            <span class="text-[13px] font-bold text-neutral-900">82,000원</span>
+          </div>
+          <div class="flex items-center gap-0.5 mt-1">
+            <iconify-icon icon="solar:star-bold" width="11" style="color:#FFB800"></iconify-icon>
+            <span class="text-[11px] text-neutral-500">4.7</span>
+            <span class="text-[11px] text-neutral-400 ml-0.5">후기 35</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div onclick="location.href='ybm-baby-shopping-detail.html'" class="bg-neutral-100 rounded-md shadow-1 overflow-hidden cursor-pointer active:opacity-80 transition-opacity">
+        <div class="w-full aspect-square overflow-hidden bg-neutral-200 relative">
+          <img src="images/4312.jpg" class="w-full h-full object-cover" alt="촉감 찰흙 놀이 세트" loading="lazy">
+          <button class="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/80 flex items-center justify-center">
+            <iconify-icon icon="solar:heart-linear" width="15" style="color:#BCC2C9"></iconify-icon>
+          </button>
+        </div>
+        <div class="p-2.5">
+          <p class="text-[11px] text-neutral-400 mb-0.5">YBM BABY</p>
+          <p class="text-[13px] font-semibold text-neutral-900 leading-[18px] break-keep mb-1.5">촉감 찰흙 놀이 세트 12색</p>
+          <div class="flex items-center gap-1.5 mb-1">
+            <span class="text-[13px] font-bold text-neutral-900">89,000원</span>
+          </div>
+          <div class="flex items-center gap-0.5">
+            <iconify-icon icon="solar:star-bold" width="11" style="color:#FFB800"></iconify-icon>
+            <span class="text-[11px] text-neutral-500">4.5</span>
+            <span class="text-[11px] text-neutral-400 ml-0.5">후기 19</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div onclick="location.href='ybm-baby-shopping-detail.html'" class="bg-neutral-100 rounded-md shadow-1 overflow-hidden cursor-pointer active:opacity-80 transition-opacity">
+        <div class="w-full aspect-square overflow-hidden bg-neutral-200 relative">
+          <img src="images/6245.jpg" class="w-full h-full object-cover" alt="색구슬 분류 트레이 세트" loading="lazy">
+          <button class="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/80 flex items-center justify-center">
+            <iconify-icon icon="solar:heart-linear" width="15" style="color:#BCC2C9"></iconify-icon>
+          </button>
+          <span class="absolute top-2 left-2 bg-secondary-500 text-white text-[10px] font-bold rounded-xs px-1.5 py-0.5">인기</span>
+        </div>
+        <div class="p-2.5">
+          <p class="text-[11px] text-neutral-400 mb-0.5">YBM BABY</p>
+          <p class="text-[13px] font-semibold text-neutral-900 leading-[18px] break-keep mb-1.5">색구슬 쏙쏙 분류 트레이 세트</p>
+          <div class="flex items-center gap-1.5 mb-1">
+            <span class="text-[12px] font-bold text-primary-500">20%</span>
+            <span class="text-[13px] font-bold text-neutral-900">108,000원</span>
+          </div>
+          <div class="flex items-center gap-0.5 mt-1">
+            <iconify-icon icon="solar:star-bold" width="11" style="color:#FFB800"></iconify-icon>
+            <span class="text-[11px] text-neutral-500">4.8</span>
+            <span class="text-[11px] text-neutral-400 ml-0.5">후기 53</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 7 -->
+      <div onclick="location.href='ybm-baby-shopping-detail.html'" class="bg-neutral-100 rounded-md shadow-1 overflow-hidden cursor-pointer active:opacity-80 transition-opacity">
+        <div class="w-full aspect-square overflow-hidden bg-neutral-200 relative">
+          <img src="images/634532.jpg" class="w-full h-full object-cover" alt="대근육 발달 볼풀 세트" loading="lazy">
+          <button class="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/80 flex items-center justify-center">
+            <iconify-icon icon="solar:heart-linear" width="15" style="color:#BCC2C9"></iconify-icon>
+          </button>
+          <span class="absolute top-2 left-2 bg-primary-500 text-white text-[10px] font-bold rounded-xs px-1.5 py-0.5">BEST</span>
+        </div>
+        <div class="p-2.5">
+          <p class="text-[11px] text-neutral-400 mb-0.5">YBM BABY</p>
+          <p class="text-[13px] font-semibold text-neutral-900 leading-[18px] break-keep mb-1.5">대근육 발달 볼풀 놀이 세트</p>
+          <div class="flex items-center gap-1.5 mb-1">
+            <span class="text-[12px] font-bold text-primary-500">10%</span>
+            <span class="text-[13px] font-bold text-neutral-900">94,000원</span>
+          </div>
+          <div class="flex items-center gap-0.5 mt-1">
+            <iconify-icon icon="solar:star-bold" width="11" style="color:#FFB800"></iconify-icon>
+            <span class="text-[11px] text-neutral-500">4.7</span>
+            <span class="text-[11px] text-neutral-400 ml-0.5">후기 38</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 8 -->
+      <div onclick="location.href='ybm-baby-shopping-detail.html'" class="bg-neutral-100 rounded-md shadow-1 overflow-hidden cursor-pointer active:opacity-80 transition-opacity">
+        <div class="w-full aspect-square overflow-hidden bg-neutral-200 relative">
+          <img src="images/1243.jpg" class="w-full h-full object-cover" alt="언어 발달 노래 카드" loading="lazy">
+          <button class="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/80 flex items-center justify-center">
+            <iconify-icon icon="solar:heart-linear" width="15" style="color:#BCC2C9"></iconify-icon>
+          </button>
+          <span class="absolute top-2 left-2 bg-tertiary-500 text-white text-[10px] font-bold rounded-xs px-1.5 py-0.5">추천</span>
+        </div>
+        <div class="p-2.5">
+          <p class="text-[11px] text-neutral-400 mb-0.5">YBM BABY</p>
+          <p class="text-[13px] font-semibold text-neutral-900 leading-[18px] break-keep mb-1.5">노래로 배우는 동물 사운드북</p>
+          <div class="flex items-center gap-1.5 mb-1">
+            <span class="text-[13px] font-bold text-neutral-900">78,000원</span>
+          </div>
+          <div class="flex items-center gap-0.5">
+            <iconify-icon icon="solar:star-bold" width="11" style="color:#FFB800"></iconify-icon>
+            <span class="text-[11px] text-neutral-500">4.6</span>
+            <span class="text-[11px] text-neutral-400 ml-0.5">후기 22</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 9 -->
+      <div onclick="location.href='ybm-baby-shopping-detail.html'" class="bg-neutral-100 rounded-md shadow-1 overflow-hidden cursor-pointer active:opacity-80 transition-opacity">
+        <div class="w-full aspect-square overflow-hidden bg-neutral-200 relative">
+          <img src="images/6234.jpg" class="w-full h-full object-cover" alt="인지 발달 쌓기 링 세트" loading="lazy">
+          <button class="absolute top-2 right-2 w-7 h-7 rounded-full bg-white/80 flex items-center justify-center">
+            <iconify-icon icon="solar:heart-linear" width="15" style="color:#BCC2C9"></iconify-icon>
+          </button>
+          <span class="absolute top-2 left-2 bg-neutral-900 text-white text-[10px] font-bold rounded-xs px-1.5 py-0.5">NEW</span>
+        </div>
+        <div class="p-2.5">
+          <p class="text-[11px] text-neutral-400 mb-0.5">YBM BABY</p>
+          <p class="text-[13px] font-semibold text-neutral-900 leading-[18px] break-keep mb-1.5">인지 발달 무지개 쌓기 링</p>
+          <div class="flex items-center gap-1.5 mb-1">
+            <span class="text-[12px] font-bold text-primary-500">15%</span>
+            <span class="text-[13px] font-bold text-neutral-900">88,000원</span>
+          </div>
+          <div class="flex items-center gap-0.5 mt-1">
+            <iconify-icon icon="solar:star-bold" width="11" style="color:#FFB800"></iconify-icon>
+            <span class="text-[11px] text-neutral-500">4.5</span>
+            <span class="text-[11px] text-neutral-400 ml-0.5">후기 17</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="height:7rem;"></div>
+    </div><!-- end panel-product -->
+
+    <!-- ══ 멤버십 패널 ══ -->
+    <div id="panel-membership" class="hidden">
+
+    <!-- ── Membership Section ── -->
+    <div class="mt-6 reveal d2">
+      <!-- Section Header -->
+      <div class="px-5 mb-4">
+        <p class="text-[12px] font-normal text-secondary-500 tracking-wide mb-1">MONTHLY BOX · 큐레이션</p>
+        <h3 class="text-[22px] font-bold text-neutral-900 leading-[30px] break-keep">발달에 꼭 맞는 교구,<br>매달 문 앞으로</h3>
+        <p class="text-[13px] text-neutral-500 leading-[20px] break-keep mt-1.5">발달 단계에 맞춰 교구 3종 + 영상 가이드 +<br>부모 코칭이 함께 옵니다.</p>
+      </div>
+
+      <!-- This Month Box Card -->
+      <div class="mx-4 mb-4 rounded-lg overflow-hidden shadow-2">
+        <div class="relative p-4" style="background:linear-gradient(135deg,#FFF1E5 0%,#FFE0CC 40%,#E8F3FF 100%);">
+          <div class="flex items-start justify-between">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="bg-white/70 text-neutral-700 text-[11px] font-bold rounded-xs px-2 py-0.5 break-keep">5월 BOX · 24개월</span>
+              </div>
+              <p class="text-[18px] font-bold text-neutral-900 leading-[26px] break-keep mb-1">소근육이<br>자라는 달</p>
+              <p class="text-[12px] text-neutral-600 break-keep">교구 3종 · 가이드 영상 6편 · 부모 코칭</p>
+            </div>
+            <!-- Stacking blocks illustration -->
+            <div class="flex flex-col items-center gap-1 pt-2 flex-shrink-0">
+              <div class="rounded-sm" style="width:36px;height:14px;background:#6EC6B4;"></div>
+              <div class="rounded-sm" style="width:44px;height:14px;background:#F5F5F5;"></div>
+              <div class="rounded-sm" style="width:52px;height:14px;background:#FFD166;"></div>
+              <div class="rounded-md" style="width:60px;height:20px;background:#FF7300;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plans -->
+      <div class="px-4">
+        <p class="text-[12px] font-semibold text-neutral-500 tracking-widest mb-3">PLANS</p>
+        <p class="text-[18px] font-bold text-neutral-900 break-keep mb-3">요금제를 선택해주세요</p>
+
+        <!-- Plan: Lite -->
+        <div class="bg-neutral-100 rounded-md shadow-1 p-4 mb-2.5 flex items-center gap-3">
+          <div class="w-11 h-11 rounded-sm flex items-center justify-center flex-shrink-0" style="background:#FFF1E5;">
+            <iconify-icon icon="solar:box-linear" width="22" style="color:#FF7300"></iconify-icon>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-[15px] font-bold text-neutral-900 leading-none mb-0.5">라이트</p>
+            <p class="text-[12px] text-primary-500 break-keep">교구 1종 + 가이드 영상</p>
+          </div>
+          <div class="text-right flex-shrink-0">
+            <span class="text-[16px] font-bold text-neutral-900">89,000</span>
+            <span class="text-[12px] text-neutral-500">/월</span>
+          </div>
+        </div>
+
+        <!-- Plan: Standard (BEST) -->
+        <div class="bg-neutral-100 rounded-md shadow-2 overflow-hidden mb-2.5" style="border:1.5px solid #FF7300;">
+          <!-- Best badge -->
+          <div class="flex justify-end">
+            <span class="bg-primary-500 text-white text-[11px] font-bold px-3 py-1 rounded-bl-md break-keep">BEST · 88%가 선택</span>
+          </div>
+          <div class="px-4 pb-4 pt-0">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-11 h-11 rounded-sm flex items-center justify-center flex-shrink-0" style="background:#FFF1E5;">
+                <iconify-icon icon="solar:stars-bold" width="22" style="color:#FF7300"></iconify-icon>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-[15px] font-bold text-neutral-900 leading-none mb-0.5">스탠다드</p>
+                <p class="text-[12px] text-primary-500 break-keep">교구 3종 + 가이드 영상 6편<br>+ 부모 코칭 1회</p>
+              </div>
+              <div class="text-right flex-shrink-0">
+                <span class="text-[16px] font-bold text-primary-500">229,000</span>
+                <span class="text-[12px] text-neutral-500">/월</span>
+              </div>
+            </div>
+            <!-- Benefits -->
+            <div class="flex flex-col gap-1.5">
+              <div class="flex items-center gap-1.5">
+                <iconify-icon icon="solar:check-circle-bold" width="14" style="color:#FF7300"></iconify-icon>
+                <span class="text-[12px] text-neutral-700 break-keep">월령 맞춤 큐레이션</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <iconify-icon icon="solar:check-circle-bold" width="14" style="color:#FF7300"></iconify-icon>
+                <span class="text-[12px] text-neutral-700 break-keep">전문가 부모 코칭 월 1회</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <iconify-icon icon="solar:check-circle-bold" width="14" style="color:#FF7300"></iconify-icon>
+                <span class="text-[12px] text-neutral-700 break-keep">발달 리포트 매월 업데이트</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plan: Premium -->
+        <div class="bg-neutral-100 rounded-md shadow-2 overflow-hidden mb-1">
+          <div class="flex justify-end">
+            <span class="text-[11px] font-bold px-3 py-1 rounded-bl-md break-keep" style="background:#FF7300; color:white;">PREMIUM</span>
+          </div>
+          <div class="px-4 pb-4 pt-0">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-11 h-11 rounded-sm flex items-center justify-center flex-shrink-0" style="background:#FFF1E5;">
+                <iconify-icon icon="solar:crown-bold" width="22" style="color:#FF7300"></iconify-icon>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-[15px] font-bold text-neutral-900 leading-none mb-0.5">프리미엄</p>
+                <p class="text-[12px] text-primary-500 break-keep">교구 6종 + 영상 무제한 + 1:1 코칭</p>
+              </div>
+              <div class="text-right flex-shrink-0">
+                <span class="text-[16px] font-bold text-primary-500">439,000</span>
+                <span class="text-[12px] text-neutral-500">/월</span>
+              </div>
+            </div>
+            <!-- Benefits -->
+            <div class="flex flex-col gap-1.5">
+              <div class="flex items-center gap-1.5">
+                <iconify-icon icon="solar:check-circle-bold" width="14" style="color:#FF7300"></iconify-icon>
+                <span class="text-[12px] text-neutral-700 break-keep">스탠다드 혜택 전체 포함</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <iconify-icon icon="solar:check-circle-bold" width="14" style="color:#FF7300"></iconify-icon>
+                <span class="text-[12px] text-neutral-700 break-keep">교구 6종 + 가이드 영상 무제한</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <iconify-icon icon="solar:check-circle-bold" width="14" style="color:#FF7300"></iconify-icon>
+                <span class="text-[12px] text-neutral-700 break-keep">발달 심층 분석 리포트 (분기별)</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <iconify-icon icon="solar:check-circle-bold" width="14" style="color:#FF7300"></iconify-icon>
+                <span class="text-[12px] text-neutral-700 break-keep">프리미엄 전용 커뮤니티 참여권</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <button class="w-full mt-3 h-12 bg-primary-500 active:bg-primary-600 text-white text-[15px] font-semibold rounded-pill flex items-center justify-center gap-2 break-keep">
+          <iconify-icon icon="solar:box-bold" width="18" class="text-white"></iconify-icon>
+          스탠다드로 구독 시작하기
+        </button>
+        <p class="text-center text-[11px] text-neutral-400 mt-2 break-keep">첫 달 라이트 무료 체험 · 언제든 해지 가능</p>
+      </div>
+
+      <!-- ── 전문가 커리큘럼 소개 ── -->
+      <div class="px-4 pt-8 pb-2">
+        <p class="text-[12px] font-normal text-secondary-500 leading-none tracking-wide mb-1">EXPERT CURRICULUM</p>
+        <h2 class="text-[20px] font-bold text-neutral-900 leading-[28px] break-keep">뇌과학 박사가 직접 설계한<br>월령별 커리큘럼</h2>
+        <p class="text-[13px] text-neutral-500 mt-1.5 leading-[20px] break-keep">단순한 교구 배송이 아닙니다. 아이의 뇌가 가장 빠르게 자라는 시기, 무엇을 어떻게 자극해야 하는지 과학적으로 설계했어요.</p>
+      </div>
+
+      <!-- 전문가 프로필 카드 -->
+      <div class="mx-4 mt-3 rounded-xl overflow-hidden shadow-2" style="background:linear-gradient(135deg,#1A1B1C 0%,#2D1F0E 100%);">
+        <div class="relative">
+          <!-- 상단 배지 -->
+          <div class="px-4 pt-4 pb-0 flex justify-between items-start">
+            <span class="bg-primary-500 text-white text-[10px] font-bold rounded-xs px-2 py-1 tracking-wide">YBM 수석 커리큘럼 디렉터</span>
+            <span class="text-white/30 text-[10px]">SINCE 2019</span>
+          </div>
+          <!-- 프로필 -->
+          <div class="px-4 py-4 flex items-center gap-4">
+            <div class="relative flex-shrink-0">
+              <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-primary-400 bg-neutral-700">
+                <img src="images/profile4.png" class="w-full h-full object-cover" alt="정누리 박사">
+              </div>
+              <div class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center">
+                <iconify-icon icon="solar:verified-check-bold" width="13" style="color:white"></iconify-icon>
+              </div>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-[20px] font-bold text-white leading-none mb-1">정누리 박사</p>
+              <p class="text-[12px] text-white/60 leading-[18px] break-keep">서울대학교 발달심리학 박사<br>전 미국 MIT 인지과학연구소 연구원<br>아동 뇌발달 분야 논문 42편 게재</p>
+            </div>
+          </div>
+          <!-- 인용 -->
+          <div class="mx-4 mb-4 bg-white/5 rounded-lg px-4 py-3.5 border border-white/10">
+            <iconify-icon icon="solar:quote-up-bold" width="16" style="color:#FF7300" class="mb-1.5 block"></iconify-icon>
+            <p class="text-[13px] text-white/85 leading-[21px] break-keep">생후 1,000일은 뇌 시냅스가 초당 100만 개씩 형성되는 시기입니다. 이 창문이 닫히기 전에 올바른 자극을 주는 것, 그것이 제가 이 커리큘럼을 만든 이유입니다.</p>
+            <p class="text-[11px] text-primary-400 mt-2 font-semibold">— 정누리, 아동 뇌발달 전문가</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 커리큘럼 수치 -->
+      <div class="mx-4 mt-2.5 grid grid-cols-3 gap-2">
+        <div class="bg-neutral-100 rounded-lg p-3 text-center shadow-1">
+          <p class="text-[22px] font-bold text-primary-500 leading-none">36</p>
+          <p class="text-[10px] text-neutral-500 mt-0.5 break-keep">개월 커리큘럼</p>
+        </div>
+        <div class="bg-neutral-100 rounded-lg p-3 text-center shadow-1">
+          <p class="text-[22px] font-bold text-primary-500 leading-none">156</p>
+          <p class="text-[10px] text-neutral-500 mt-0.5 break-keep">주차별 활동</p>
+        </div>
+        <div class="bg-neutral-100 rounded-lg p-3 text-center shadow-1">
+          <p class="text-[22px] font-bold text-primary-500 leading-none">98%</p>
+          <p class="text-[10px] text-neutral-500 mt-0.5 break-keep">부모 만족도</p>
+        </div>
+      </div>
+
+      <!-- 설계 원칙 -->
+      <div class="mx-4 mt-2.5 bg-neutral-100 rounded-xl shadow-2 overflow-hidden">
+        <div class="px-4 pt-4 pb-3 border-b border-neutral-200">
+          <p class="text-[14px] font-bold text-neutral-900 break-keep">커리큘럼 설계 3원칙</p>
+        </div>
+        <div class="divide-y divide-neutral-200">
+          <div class="px-4 py-3.5 flex items-start gap-3">
+            <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#FFF1E5;">
+              <iconify-icon icon="solar:brain-bold" width="18" style="color:#FF7300"></iconify-icon>
+            </div>
+            <div class="flex-1 min-w-0 pt-0.5">
+              <p class="text-[13px] font-bold text-neutral-900 leading-none mb-1">뇌 발달 황금기 집중 자극</p>
+              <p class="text-[12px] text-neutral-500 leading-[18px] break-keep">월령별로 뇌에서 가장 활발하게 연결되는 영역을 집중 자극해, 자연스럽게 발달이 이뤄지도록 설계했어요.</p>
+            </div>
+          </div>
+          <div class="px-4 py-3.5 flex items-start gap-3">
+            <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#FFF1E5;">
+              <iconify-icon icon="solar:refresh-circle-bold" width="18" style="color:#FF7300"></iconify-icon>
+            </div>
+            <div class="flex-1 min-w-0 pt-0.5">
+              <p class="text-[13px] font-bold text-neutral-900 leading-none mb-1">나선형 반복 학습 구조</p>
+              <p class="text-[12px] text-neutral-500 leading-[18px] break-keep">같은 교구를 주차별로 다른 방식으로 활용해, 아이가 지루하지 않게 깊이를 더해가며 숙달해요.</p>
+            </div>
+          </div>
+          <div class="px-4 py-3.5 flex items-start gap-3">
+            <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#FFF1E5;">
+              <iconify-icon icon="solar:heart-pulse-bold" width="18" style="color:#FF7300"></iconify-icon>
+            </div>
+            <div class="flex-1 min-w-0 pt-0.5">
+              <p class="text-[13px] font-bold text-neutral-900 leading-none mb-1">애착 형성 기반 놀이 설계</p>
+              <p class="text-[12px] text-neutral-500 leading-[18px] break-keep">인지 발달뿐 아니라 부모와의 상호작용 활동을 매 주차 함께 구성해 정서 안정까지 챙겨요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 이달의 커리큘럼 미리보기 -->
+      <div class="px-4 pt-6 pb-2">
+        <p class="text-[12px] font-normal text-secondary-500 leading-none tracking-wide mb-1">THIS MONTH</p>
+        <h2 class="text-[20px] font-bold text-neutral-900 leading-[28px] break-keep">지호의 이번 달 커리큘럼</h2>
+      </div>
+      <div class="mx-4 bg-neutral-100 rounded-xl shadow-2 overflow-hidden">
+        <!-- 월 헤더 -->
+        <div class="px-4 py-3 flex items-center justify-between" style="background:linear-gradient(90deg,#FF7300,#FF9A3C);">
+          <div>
+            <p class="text-white/80 text-[11px] font-medium">16~17개월 · 소근육 집중</p>
+            <p class="text-white text-[16px] font-bold leading-none mt-0.5">2026년 5월</p>
+          </div>
+          <div class="text-right">
+            <p class="text-white/80 text-[11px]">정누리 박사 코칭</p>
+            <iconify-icon icon="solar:verified-check-bold" width="20" style="color:white" class="mt-0.5 block ml-auto"></iconify-icon>
+          </div>
+        </div>
+        <!-- 주차별 -->
+        <div class="divide-y divide-neutral-200">
+          <div class="px-4 py-3 flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0">
+              <span class="text-white text-[11px] font-bold">1주</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-[13px] font-semibold text-neutral-900 leading-none mb-0.5">색 인지 + 손끝 자극</p>
+              <p class="text-[11px] text-neutral-500 break-keep">색구슬 쏙쏙 분류 트레이 · 집기-넣기 반복</p>
+            </div>
+            <iconify-icon icon="solar:arrow-right-linear" width="14" style="color:#BCC2C9"></iconify-icon>
+          </div>
+          <div class="px-4 py-3 flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-neutral-300 flex items-center justify-center flex-shrink-0">
+              <span class="text-neutral-600 text-[11px] font-bold">2주</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-[13px] font-semibold text-neutral-900 leading-none mb-0.5">공간 지각 + 순서 개념</p>
+              <p class="text-[11px] text-neutral-500 break-keep">무지개 쌓기 링 · 크기별 순서 맞추기</p>
+            </div>
+            <iconify-icon icon="solar:arrow-right-linear" width="14" style="color:#BCC2C9"></iconify-icon>
+          </div>
+          <div class="px-4 py-3 flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-neutral-300 flex items-center justify-center flex-shrink-0">
+              <span class="text-neutral-600 text-[11px] font-bold">3주</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-[13px] font-semibold text-neutral-900 leading-none mb-0.5">언어 연결 + 표현력</p>
+              <p class="text-[11px] text-neutral-500 break-keep">색깔·모양 이름 말하기 + 부모 상호작용</p>
+            </div>
+            <iconify-icon icon="solar:arrow-right-linear" width="14" style="color:#BCC2C9"></iconify-icon>
+          </div>
+          <div class="px-4 py-3 flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-neutral-300 flex items-center justify-center flex-shrink-0">
+              <span class="text-neutral-600 text-[11px] font-bold">4주</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-[13px] font-semibold text-neutral-900 leading-none mb-0.5">통합 놀이 + 성취 경험</p>
+              <p class="text-[11px] text-neutral-500 break-keep">4주 배운 것 통합 · 스스로 해내는 성공 경험</p>
+            </div>
+            <iconify-icon icon="solar:arrow-right-linear" width="14" style="color:#BCC2C9"></iconify-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- 구독 유도 배너 -->
+      <div class="mx-4 mt-3 rounded-xl overflow-hidden shadow-2 relative" style="min-height:200px;">
+        <!-- 배경 실사 이미지 -->
+        <img src="images/profile5.png" class="absolute inset-0 w-full h-full object-cover" alt="교구 패키지">
+        <!-- 다크 오버레이 -->
+        <div class="absolute inset-0" style="background:linear-gradient(200deg, rgba(0,0,0,0.10) 0%, rgba(20,8,0,0.82) 85%, rgba(0,0,0,0.92) 100%);"></div>
+        <!-- 콘텐츠 -->
+        <div class="relative px-4 pt-5 pb-4 flex flex-col justify-end" style="min-height:200px;">
+          <span class="self-start bg-primary-500 text-white text-[10px] font-bold rounded-xs px-2 py-1 mb-2 tracking-wide">정누리 박사 큐레이션</span>
+          <p class="text-white/70 text-[12px] font-medium mb-0.5 break-keep">지호에게 딱 맞는 커리큘럼, 지금 시작하세요</p>
+          <p class="text-white text-[18px] font-bold leading-[26px] break-keep">정누리 박사의 설계가<br>매달 문 앞으로 옵니다</p>
+          <button class="mt-3 w-full h-11 bg-primary-500 rounded-pill text-white text-[14px] font-bold flex items-center justify-center gap-1.5 active:opacity-80">
+            <iconify-icon icon="solar:box-bold" width="16" style="color:white"></iconify-icon>
+            스탠다드 구독 시작하기
+          </button>
+          <p class="text-center text-white/50 text-[11px] mt-2 break-keep">첫 달 무료 · 언제든 해지 가능</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:7rem;"></div>
+    </div><!-- end panel-membership -->
+
+  </div><!-- end scroll area -->
+
+  <!-- ── Bottom Nav ── -->
+  <nav class="absolute bottom-0 left-0 right-0 h-20 bg-neutral-100 border-t border-neutral-300 flex items-start pt-2">
+
+    <!-- 홈 -->
+    <button onclick="location.href='ybm-baby-home.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:home-2-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-400 leading-none break-keep">홈</span>
+    </button>
+
+    <!-- 콘텐츠 -->
+    <button onclick="location.href='ybm-baby-contents.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:play-circle-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-400 leading-none break-keep">콘텐츠</span>
+    </button>
+
+    <!-- 쇼핑 (active) -->
+    <button class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:bag-3-bold" width="22" style="color:#FF7300"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full bg-primary-500 mt-0.5"></span>
+      <span class="text-[11px] font-bold text-primary-500 leading-none break-keep">쇼핑</span>
+    </button>
+
+    <!-- 브랜드 -->
+    <button onclick="location.href='ybm-baby-brand.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:star-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-400 leading-none break-keep">브랜드</span>
+    </button>
+
+    <!-- 마이 -->
+    <button onclick="location.href='ybm-baby-mypage.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:user-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-400 leading-none break-keep">마이</span>
+    </button>
+
+  </nav>
+
+</div>
+
+<script>
+  // ── 메인 탭: 상품 / 멤버십 ──
+  function switchMainTab(tab) {
+    const isProduct = tab === 'product';
+
+    // 탭 버튼 스타일
+    const tProduct    = document.getElementById('mtab-product');
+    const tMembership = document.getElementById('mtab-membership');
+    tProduct.className    = `flex-1 py-3 text-[15px] break-keep border-b-2 ${isProduct ? 'font-bold text-neutral-900 border-primary-500' : 'font-normal text-neutral-400 border-transparent'}`;
+    tMembership.className = `flex-1 py-3 text-[15px] break-keep border-b-2 ${!isProduct ? 'font-bold text-neutral-900 border-primary-500' : 'font-normal text-neutral-400 border-transparent'}`;
+
+    // 필터 바 (상품 탭일 때만 노출)
+    document.getElementById('product-filters').classList.toggle('hidden', !isProduct);
+
+    // 패널 전환
+    document.getElementById('panel-product').classList.toggle('hidden', !isProduct);
+    document.getElementById('panel-membership').classList.toggle('hidden', isProduct);
+  }
+
+  // ── 나이 탭 ──
+  function setAgeTab(el) {
+    document.querySelectorAll('.tab-active,.tab-inactive').forEach(b => {
+      b.className = b.className.replace('tab-active','tab-inactive');
+    });
+    el.className = el.className.replace('tab-inactive','tab-active');
+  }
+
+  // ── Reveal ──
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

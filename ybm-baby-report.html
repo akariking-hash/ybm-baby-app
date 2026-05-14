@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>YBM BABY - 발달 리포트</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+<script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', '"Apple SD Gothic Neo"', '"Noto Sans KR"', 'sans-serif'],
+        },
+        colors: {
+          primary:   { 100:'#FFF1E5', 200:'#FFCBA6', 300:'#FFAB66', 400:'#FF9233', 500:'#FF7300', 600:'#E66800', 900:'#662E00' },
+          secondary: { 100:'#E8F3FF', 300:'#99C4FF', 500:'#4D96FF', 600:'#3D78E0' },
+          tertiary:  { 100:'#E4FAF1', 400:'#4DD49C', 500:'#24C783' },
+          neutral:   { 100:'#FFFFFF', 200:'#F5F7F9', 300:'#DDE1E6', 400:'#BCC2C9', 500:'#8E959E', 600:'#757D85', 800:'#3F4347', 900:'#1A1B1C' },
+        },
+        borderRadius: {
+          'xs': '4px', 'sm': '8px', 'DEFAULT': '12px', 'md': '12px',
+          'lg': '16px', 'xl': '20px', '2xl': '24px', 'pill': '9999px',
+        },
+        boxShadow: {
+          '1': '0px 1px 3px rgba(0,0,0,0.06)',
+          '2': '0px 2px 8px rgba(0,0,0,0.08)',
+          '3': '0px 4px 12px rgba(0,0,0,0.12)',
+          '4': '0px 8px 24px rgba(0,0,0,0.16)',
+        },
+      }
+    }
+  }
+</script>
+<style>
+  .break-keep { word-break: keep-all; }
+  .reveal {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal.d1 { transition-delay: 60ms; }
+  .reveal.d2 { transition-delay: 120ms; }
+  .reveal.d3 { transition-delay: 180ms; }
+  .no-sb::-webkit-scrollbar { display: none; }
+  .no-sb { -ms-overflow-style: none; scrollbar-width: none; }
+  .phone {
+    width: 390px; height: 844px;
+    border-radius: 32px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.28), inset 0 0 0 1px rgba(255,255,255,0.55);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+</style>
+</head>
+
+<body class="bg-[#dcdcdc] min-h-screen flex items-center justify-center font-sans">
+<div class="phone bg-neutral-200">
+
+  <!-- ── Status Bar ── -->
+  <div class="bg-neutral-100 flex-shrink-0 flex justify-between items-center px-6 pt-3.5 pb-0">
+    <span class="text-[14px] font-semibold text-neutral-900 tabular-nums">9:41</span>
+    <div class="flex items-center gap-1.5">
+      <svg width="17" height="12" viewBox="0 0 17 12" fill="#1A1B1C">
+        <rect x="0"    y="7" width="3" height="5"  rx="1"/>
+        <rect x="4.5"  y="4" width="3" height="8"  rx="1"/>
+        <rect x="9"    y="2" width="3" height="10" rx="1"/>
+        <rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".28"/>
+      </svg>
+      <svg width="16" height="11" viewBox="0 0 24 16" fill="none" stroke="#1A1B1C" stroke-width="2.2" stroke-linecap="round">
+        <path d="M1.42 5a16 16 0 0121.16 0"/><path d="M5 8.5a11 11 0 0114 0"/><path d="M8.5 12a6 6 0 017 0"/>
+        <circle cx="12" cy="15" r="1.2" fill="#1A1B1C" stroke="none"/>
+      </svg>
+      <svg width="26" height="13" viewBox="0 0 28 14">
+        <rect x="1" y="1" width="22" height="12" rx="3" stroke="#1A1B1C" stroke-width="1.6" fill="none"/>
+        <rect x="2.5" y="2.5" width="18" height="9" rx="2" fill="#1A1B1C"/>
+        <path d="M24 5v4a2 2 0 000-4z" fill="#1A1B1C" opacity=".35"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ── Top Nav ── -->
+  <div class="bg-neutral-100 flex-shrink-0 flex justify-between items-center px-4 pt-2 pb-3.5">
+    <button onclick="goBack()" class="w-[38px] h-[38px] rounded-full flex items-center justify-center">
+      <iconify-icon icon="solar:arrow-left-linear" width="22" style="color:#3F4347"></iconify-icon>
+    </button>
+    <span class="text-[17px] font-semibold text-neutral-900">발달 리포트</span>
+    <button class="w-[38px] h-[38px] rounded-full flex items-center justify-center">
+      <iconify-icon icon="solar:bell-linear" width="21" style="color:#3F4347"></iconify-icon>
+    </button>
+  </div>
+
+  <!-- ── Scroll Area ── -->
+  <div class="flex-1 overflow-y-auto overflow-x-hidden no-sb bg-neutral-200">
+
+    <!-- ── Hero ── -->
+    <div class="mx-5 mt-4 bg-neutral-100 rounded-md shadow-2 px-5 py-5 reveal visible">
+      <p class="text-[12px] font-semibold text-secondary-500 mb-2 tabular-nums tracking-wide">2026.05 · WEEK 2</p>
+      <h1 class="text-[26px] font-bold text-neutral-900 leading-[1.35] break-keep mb-2.5">
+        지호의 발달은<br>또래보다 <span class="text-primary-500">활발한 편</span>이에요
+      </h1>
+      <p class="text-[14px] font-normal text-neutral-600 leading-[1.65] break-keep">
+        대근육과 사회성이 특히 잘 발달하고 있어요.<br>소근육은 꾸준한 활동으로 더 키울 수 있어요.
+      </p>
+    </div>
+
+    <!-- ── Radar Chart Card ── -->
+    <div class="mx-5 mt-3 bg-neutral-100 rounded-md shadow-2 pt-5 pb-4 px-3 reveal d1">
+      <svg viewBox="0 0 260 265" width="100%" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- Grid rings -->
+        <polygon points="130,30 216.6,80 216.6,180 130,230 43.4,180 43.4,80"
+          fill="none" stroke="#DDE1E6" stroke-width="1"/>
+        <polygon points="130,55 195,92.5 195,167.5 130,205 65,167.5 65,92.5"
+          fill="none" stroke="#DDE1E6" stroke-width="1"/>
+        <polygon points="130,80 173.3,105 173.3,155 130,180 86.7,155 86.7,105"
+          fill="none" stroke="#DDE1E6" stroke-width="1"/>
+        <polygon points="130,105 151.7,117.5 151.7,142.5 130,155 108.3,142.5 108.3,117.5"
+          fill="none" stroke="#DDE1E6" stroke-width="1"/>
+
+        <!-- Axis lines -->
+        <line x1="130" y1="130" x2="130"   y2="30"  stroke="#DDE1E6" stroke-width="1"/>
+        <line x1="130" y1="130" x2="216.6" y2="80"  stroke="#DDE1E6" stroke-width="1"/>
+        <line x1="130" y1="130" x2="216.6" y2="180" stroke="#DDE1E6" stroke-width="1"/>
+        <line x1="130" y1="130" x2="130"   y2="230" stroke="#DDE1E6" stroke-width="1"/>
+        <line x1="130" y1="130" x2="43.4"  y2="180" stroke="#DDE1E6" stroke-width="1"/>
+        <line x1="130" y1="130" x2="43.4"  y2="80"  stroke="#DDE1E6" stroke-width="1"/>
+
+        <!-- 6 colored data triangles (대근육84 소근육52 인지65 언어71 사회성78 감각65) -->
+        <polygon points="130,130 130,46 175,104"      fill="#4D96FF" fill-opacity="0.22"/>
+        <polygon points="130,130 175,104 186.3,162.5" fill="#FFB800" fill-opacity="0.22"/>
+        <polygon points="130,130 186.3,162.5 130,201" fill="#24C783" fill-opacity="0.22"/>
+        <polygon points="130,130 130,201 62.4,169"    fill="#FF7300" fill-opacity="0.22"/>
+        <polygon points="130,130 62.4,169 73.7,97.5"  fill="#FF6B9D" fill-opacity="0.22"/>
+        <polygon points="130,130 73.7,97.5 130,46"    fill="#9B79F5" fill-opacity="0.22"/>
+
+        <!-- Outer boundary -->
+        <polygon points="130,46 175,104 186.3,162.5 130,201 62.4,169 73.7,97.5"
+          fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="1.5" stroke-linejoin="round"/>
+
+        <!-- Colored dots -->
+        <circle cx="130"   cy="46"    r="6" fill="#4D96FF" stroke="white" stroke-width="2.5"/>
+        <circle cx="175"   cy="104"   r="6" fill="#FFB800" stroke="white" stroke-width="2.5"/>
+        <circle cx="186.3" cy="162.5" r="6" fill="#24C783" stroke="white" stroke-width="2.5"/>
+        <circle cx="130"   cy="201"   r="6" fill="#FF7300" stroke="white" stroke-width="2.5"/>
+        <circle cx="62.4"  cy="169"   r="6" fill="#FF6B9D" stroke="white" stroke-width="2.5"/>
+        <circle cx="73.7"  cy="97.5"  r="6" fill="#9B79F5" stroke="white" stroke-width="2.5"/>
+
+        <!-- Colored axis labels -->
+        <text x="130" y="17"  text-anchor="middle" font-size="12" font-family="Pretendard,sans-serif" fill="#4D96FF" font-weight="700">대근육</text>
+        <text x="226" y="79"  text-anchor="start"  font-size="12" font-family="Pretendard,sans-serif" fill="#C98500" font-weight="700">소근육</text>
+        <text x="226" y="190" text-anchor="start"  font-size="12" font-family="Pretendard,sans-serif" fill="#1BA368" font-weight="700">인지</text>
+        <text x="130" y="251" text-anchor="middle" font-size="12" font-family="Pretendard,sans-serif" fill="#E66800" font-weight="700">언어</text>
+        <text x="34"  y="190" text-anchor="end"    font-size="12" font-family="Pretendard,sans-serif" fill="#E04F82" font-weight="700">사회성</text>
+        <text x="34"  y="79"  text-anchor="end"    font-size="12" font-family="Pretendard,sans-serif" fill="#7C5CD6" font-weight="700">감각</text>
+
+      </svg>
+
+    </div>
+
+
+    <!-- ── Expert Report ── -->
+    <div class="reveal d3">
+      <div class="flex justify-between items-end px-5 pt-6 pb-3">
+        <div>
+          <p class="text-[12px] font-normal text-secondary-500 leading-[18px] tracking-wide break-keep">EXPERT</p>
+          <h3 class="text-[22px] font-bold text-neutral-900 leading-[30px] break-keep">전문가 발달 리포트</h3>
+        </div>
+      </div>
+
+      <div class="mx-5 bg-neutral-100 rounded-md shadow-2 p-5">
+        <!-- Expert profile -->
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-neutral-200">
+            <img src="images/5123.png" class="w-full h-full object-cover" alt="김미정 박사" loading="lazy" decoding="async">
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-[15px] font-bold text-neutral-900 leading-5 break-keep">김미정 박사</p>
+            <p class="text-[12px] font-normal text-neutral-500 leading-[18px] break-keep">발달심리학 박사 · 영유아 발달 전문가</p>
+          </div>
+          <span class="bg-secondary-100 text-secondary-500 text-[11px] font-bold rounded-md px-[7px] py-[3px] whitespace-nowrap flex-shrink-0">인증 전문가</span>
+        </div>
+
+        <!-- Divider -->
+        <div class="border-t border-neutral-200 mb-4"></div>
+
+        <!-- Commentary -->
+        <div class="flex gap-2 mb-4">
+          <iconify-icon icon="solar:quote-up-bold" width="20" style="color:#FF7300" class="flex-shrink-0 mt-0.5"></iconify-icon>
+          <p class="text-[14px] font-normal text-neutral-800 leading-[1.7] break-keep">
+            지호는 <span class="font-semibold text-neutral-900">대근육과 사회성이 매우 활발하게</span> 발달하고 있어요. 특히 신체 활동에서 자신감이 넘치는 모습이 인상적입니다.<br><br>
+            소근육은 <span class="font-semibold text-primary-500">지금이 자극의 최적기</span>예요. 찰흙 놀이나 끈 꿰기 같은 손가락을 활용하는 활동을 꾸준히 해주시면 빠르게 성장할 거예요.
+          </p>
+        </div>
+
+        <!-- Key points -->
+        <div class="flex flex-col gap-2">
+          <div class="flex items-start gap-2 bg-tertiary-100 rounded-sm px-3 py-2.5">
+            <iconify-icon icon="solar:check-circle-bold" width="16" style="color:#24C783" class="flex-shrink-0 mt-0.5"></iconify-icon>
+            <p class="text-[13px] font-normal text-neutral-800 leading-[1.5] break-keep"><span class="font-semibold">강점:</span> 대근육·사회성이 또래 대비 매우 활발하게 발달 중</p>
+          </div>
+          <div class="flex items-start gap-2 bg-primary-100 rounded-sm px-3 py-2.5">
+            <iconify-icon icon="solar:star-shine-bold" width="16" style="color:#FF7300" class="flex-shrink-0 mt-0.5"></iconify-icon>
+            <p class="text-[13px] font-normal text-neutral-800 leading-[1.5] break-keep"><span class="font-semibold">집중 영역:</span> 소근육 발달 — 주 3회 손 활동 권장</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Recommended Section ── -->
+    <div class="reveal d3">
+      <div class="flex justify-between items-end px-5 pt-6 pb-3">
+        <div>
+          <p class="text-[12px] font-normal text-secondary-500 leading-[18px] tracking-wide break-keep">RECOMMENDED FOR JIHO</p>
+          <h3 class="text-[22px] font-bold text-neutral-900 leading-[30px] break-keep">맞춤 교구 3가지</h3>
+        </div>
+        <button class="text-[14px] font-normal text-neutral-500 leading-[22px]">전체 →</button>
+      </div>
+
+      <div class="flex gap-3 overflow-x-auto no-sb px-5 pb-1">
+
+        <!-- 교구 Card 1 -->
+        <div class="bg-neutral-100 rounded-md shadow-2 p-3 w-[158px] flex-shrink-0 cursor-pointer active:opacity-80 transition-opacity">
+          <div class="w-full aspect-square rounded-sm mb-2 overflow-hidden bg-neutral-200">
+            <img src="images/123.jpg" class="w-full h-full object-cover" alt="감각 교구" loading="lazy" decoding="async">
+          </div>
+          <span class="bg-primary-100 text-primary-500 text-[13px] font-bold rounded-md px-[7px] py-[3px] inline-block mb-1 break-keep">소근육 발달</span>
+          <p class="text-[13px] font-normal text-neutral-900 leading-[20px] break-keep">촉감 점토 세트</p>
+        </div>
+
+        <!-- 교구 Card 2 -->
+        <div class="bg-neutral-100 rounded-md shadow-2 p-3 w-[158px] flex-shrink-0 cursor-pointer active:opacity-80 transition-opacity">
+          <div class="w-full aspect-square rounded-sm mb-2 overflow-hidden bg-neutral-200">
+            <img src="images/124.jpg" class="w-full h-full object-cover" alt="끈 꿰기" loading="lazy" decoding="async">
+          </div>
+          <span class="bg-primary-100 text-primary-500 text-[13px] font-bold rounded-md px-[7px] py-[3px] inline-block mb-1 break-keep">소근육 발달</span>
+          <p class="text-[13px] font-normal text-neutral-900 leading-[20px] break-keep">색깔 끈 꿰기 놀이</p>
+        </div>
+
+        <!-- 교구 Card 3 -->
+        <div class="bg-neutral-100 rounded-md shadow-2 p-3 w-[158px] flex-shrink-0 cursor-pointer active:opacity-80 transition-opacity">
+          <div class="w-full aspect-square rounded-sm mb-2 overflow-hidden bg-neutral-200">
+            <img src="images/625234.jpg" class="w-full h-full object-cover" alt="쌓기 교구" loading="lazy" decoding="async">
+          </div>
+          <span class="bg-primary-100 text-primary-500 text-[13px] font-bold rounded-md px-[7px] py-[3px] inline-block mb-1 break-keep">인지 발달</span>
+          <p class="text-[13px] font-normal text-neutral-900 leading-[20px] break-keep">원목 링 쌓기 세트</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── 다시 체크 버튼 ── -->
+    <div class="px-5 pt-6 pb-2 reveal d3">
+      <button class="w-full h-12 rounded-pill flex items-center justify-center gap-2 bg-primary-500 active:bg-primary-600 transition-colors">
+        <iconify-icon icon="solar:restart-linear" width="17" style="color:white"></iconify-icon>
+        <span class="text-white text-[14px] font-semibold break-keep">다시 체크해볼까요?</span>
+      </button>
+    </div>
+
+    <div style="height:7rem;"></div>
+  </div><!-- end scroll area -->
+
+  <!-- ── Bottom Nav ── -->
+  <nav class="absolute bottom-0 left-0 right-0 h-20 bg-neutral-100 border-t border-neutral-300 flex items-start pt-2">
+
+    <!-- 홈 -->
+    <button onclick="location.href='ybm-baby-home.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:home-2-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-500 leading-none break-keep">홈</span>
+    </button>
+
+    <!-- 콘텐츠 -->
+    <button onclick="location.href='ybm-baby-contents.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:play-circle-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-500 leading-none break-keep">콘텐츠</span>
+    </button>
+
+    <!-- 쇼핑 -->
+    <button onclick="location.href='ybm-baby-shopping.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:bag-3-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-500 leading-none break-keep">쇼핑</span>
+    </button>
+
+    <!-- 브랜드 -->
+    <button onclick="location.href='ybm-baby-brand.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:star-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-500 leading-none break-keep">브랜드</span>
+    </button>
+
+    <!-- 마이 -->
+    <button onclick="location.href='ybm-baby-mypage.html'" class="flex-1 flex flex-col items-center gap-0.5 py-1">
+      <iconify-icon icon="solar:user-circle-linear" width="22" style="color:#BCC2C9"></iconify-icon>
+      <span class="w-1.5 h-1.5 rounded-full opacity-0 mt-0.5"></span>
+      <span class="text-[11px] font-medium text-neutral-500 leading-none break-keep">마이</span>
+    </button>
+
+  </nav>
+
+</div><!-- end phone -->
+
+<script>
+  // ── 뒤로가기: 진입 경로에 따라 분기 ──
+  function goBack() {
+    const from = new URLSearchParams(location.search).get('from');
+    location.href = from === 'mypage' ? 'ybm-baby-mypage.html' : 'ybm-baby-home.html';
+  }
+
+  // ── Reveal ──
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, root: document.querySelector('.no-sb') });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
