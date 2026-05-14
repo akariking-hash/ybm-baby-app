@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>YBM BABY - 놀이 가이드</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.min.css">
+<script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', '"Apple SD Gothic Neo"', '"Noto Sans KR"', 'sans-serif'],
+        },
+        colors: {
+          primary:   { 100:'#FFF1E5', 200:'#FFCBA6', 300:'#FFAB66', 400:'#FF9233', 500:'#FF7300', 600:'#E66800', 900:'#662E00' },
+          secondary: { 100:'#E8F3FF', 300:'#99C4FF', 500:'#4D96FF', 600:'#3D78E0' },
+          tertiary:  { 100:'#E4FAF1', 400:'#4DD49C', 500:'#24C783' },
+          neutral:   { 100:'#FFFFFF', 200:'#F5F7F9', 300:'#DDE1E6', 400:'#BCC2C9', 500:'#8E959E', 600:'#757D85', 800:'#3F4347', 900:'#1A1B1C' },
+        },
+        borderRadius: {
+          'xs': '4px', 'sm': '8px', 'DEFAULT': '12px', 'md': '12px',
+          'lg': '16px', 'xl': '20px', '2xl': '24px', 'pill': '9999px',
+        },
+        boxShadow: {
+          '1': '0px 1px 3px rgba(0,0,0,0.06)',
+          '2': '0px 2px 8px rgba(0,0,0,0.08)',
+          '3': '0px 4px 12px rgba(0,0,0,0.12)',
+          '4': '0px 8px 24px rgba(0,0,0,0.16)',
+        },
+      }
+    }
+  }
+</script>
+<style>
+  .break-keep { word-break: keep-all; }
+  .no-sb::-webkit-scrollbar { display: none; }
+  .no-sb { -ms-overflow-style: none; scrollbar-width: none; }
+  .phone { width:390px; height:844px; border-radius:32px; box-shadow:0 32px 80px rgba(0,0,0,0.28),inset 0 0 0 1px rgba(255,255,255,0.55); overflow:hidden; position:relative; display:flex; flex-direction:column; }
+  .step-line::before { content:''; position:absolute; left:50%; top:100%; transform:translateX(-50%); width:2px; height:16px; background:#DDE1E6; }
+  .reveal { opacity:0; transform:translateY(14px); transition:opacity 0.5s cubic-bezier(0.16,1,0.3,1),transform 0.5s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal.d1 { transition-delay:60ms; } .reveal.d2 { transition-delay:120ms; } .reveal.d3 { transition-delay:180ms; } .reveal.d4 { transition-delay:240ms; }
+</style>
+</head>
+
+<body class="bg-[#dcdcdc] min-h-screen flex items-center justify-center font-sans">
+<div class="phone bg-neutral-200">
+
+  <!-- ── Status Bar ── -->
+  <div class="bg-neutral-100 flex-shrink-0 flex justify-between items-center px-6 pt-3.5 pb-0">
+    <span class="text-[14px] font-semibold text-neutral-900 tabular-nums">9:41</span>
+    <div class="flex items-center gap-1.5">
+      <svg width="17" height="12" viewBox="0 0 17 12" fill="#1A1B1C"><rect x="0" y="7" width="3" height="5" rx="1"/><rect x="4.5" y="4" width="3" height="8" rx="1"/><rect x="9" y="2" width="3" height="10" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1" opacity=".28"/></svg>
+      <svg width="16" height="11" viewBox="0 0 24 16" fill="none" stroke="#1A1B1C" stroke-width="2.2" stroke-linecap="round"><path d="M1.42 5a16 16 0 0121.16 0"/><path d="M5 8.5a11 11 0 0114 0"/><path d="M8.5 12a6 6 0 017 0"/><circle cx="12" cy="15" r="1.2" fill="#1A1B1C" stroke="none"/></svg>
+      <svg width="26" height="13" viewBox="0 0 28 14"><rect x="1" y="1" width="22" height="12" rx="3" stroke="#1A1B1C" stroke-width="1.6" fill="none"/><rect x="2.5" y="2.5" width="18" height="9" rx="2" fill="#1A1B1C"/><path d="M24 5v4a2 2 0 000-4z" fill="#1A1B1C" opacity=".35"/></svg>
+    </div>
+  </div>
+
+  <!-- ── Top Nav ── -->
+  <div class="bg-neutral-100 flex-shrink-0 flex items-center justify-between px-4 pt-2 pb-3">
+    <button onclick="history.back()" class="w-9 h-9 flex items-center justify-center">
+      <iconify-icon icon="solar:alt-arrow-left-linear" width="22" style="color:#1A1B1C"></iconify-icon>
+    </button>
+    <span class="text-[16px] font-bold text-neutral-900">놀이 가이드</span>
+    <button class="w-9 h-9 flex items-center justify-center">
+      <iconify-icon icon="solar:share-linear" width="20" style="color:#1A1B1C"></iconify-icon>
+    </button>
+  </div>
+
+  <!-- ── Scroll Area ── -->
+  <div class="flex-1 overflow-y-auto overflow-x-hidden no-sb bg-neutral-200">
+
+    <!-- ── Hero 썸네일 ── -->
+    <div id="hero-section" class="w-full bg-neutral-100 relative overflow-hidden reveal visible" style="aspect-ratio:4/3;">
+      <img id="hero-img" src="images/1253.jpg" class="w-full h-full object-cover" alt="놀이 썸네일">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none"></div>
+      <!-- 태그 -->
+      <div class="absolute top-3 left-3 flex gap-1.5">
+        <span id="hero-tag" class="bg-primary-500 text-white text-[11px] font-bold rounded-xs px-2 py-1 break-keep">소근육</span>
+        <span class="bg-black/40 text-white text-[11px] font-normal rounded-xs px-2 py-1 break-keep">오전 10:00</span>
+      </div>
+      <!-- 제목 -->
+      <div class="absolute bottom-0 left-0 right-0 p-4">
+        <h1 id="hero-title" class="text-white text-[22px] font-bold leading-[1.3] break-keep mb-1">색구슬 쏙쏙 분류 놀이</h1>
+        <div class="flex items-center gap-3">
+          <span class="flex items-center gap-1 text-white/70 text-[12px]">
+            <iconify-icon icon="solar:clock-circle-linear" width="13"></iconify-icon>
+            <span id="hero-time">10분</span>
+          </span>
+          <span class="flex items-center gap-1 text-white/70 text-[12px]">
+            <iconify-icon icon="solar:chart-2-linear" width="13"></iconify-icon>
+            <span id="hero-level">쉬움</span>
+          </span>
+          <span class="flex items-center gap-1 text-white/70 text-[12px]">
+            <iconify-icon icon="solar:users-group-rounded-linear" width="13"></iconify-icon>
+            <span id="hero-age">18~24개월</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 발달 효과 ── -->
+    <div class="mx-4 mt-3 reveal visible">
+      <div class="bg-neutral-100 rounded-md shadow-1 p-4">
+        <p class="text-[11px] font-semibold text-secondary-500 tracking-wide mb-2 break-keep">DEVELOPMENT EFFECT</p>
+        <div id="dev-effects" class="flex gap-2 flex-wrap">
+          <span class="flex items-center gap-1 bg-primary-100 text-primary-500 text-[12px] font-semibold rounded-pill px-3 py-1 break-keep">
+            <iconify-icon icon="solar:hand-stars-linear" width="13"></iconify-icon>소근육 발달
+          </span>
+          <span class="flex items-center gap-1 bg-secondary-100 text-secondary-500 text-[12px] font-semibold rounded-pill px-3 py-1 break-keep">
+            <iconify-icon icon="solar:brain-linear" width="13"></iconify-icon>색깔 인지
+          </span>
+          <span class="flex items-center gap-1 bg-tertiary-100 text-tertiary-500 text-[12px] font-semibold rounded-pill px-3 py-1 break-keep">
+            <iconify-icon icon="solar:sort-by-alphabet-linear" width="13"></iconify-icon>언어 자극
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 준비물 ── -->
+    <div class="reveal d1">
+      <div class="px-5 pt-5 pb-2">
+        <p class="text-[12px] font-semibold text-neutral-500 tracking-wide break-keep">준비물</p>
+      </div>
+      <div id="materials-list" class="flex gap-2 overflow-x-auto no-sb px-4 pb-1">
+        <div class="flex-shrink-0 bg-neutral-100 rounded-md shadow-1 p-3 flex flex-col items-center gap-1.5 w-[76px]">
+          <div class="w-10 h-10 rounded-sm bg-primary-100 flex items-center justify-center">
+            <iconify-icon icon="solar:ball-linear" width="22" style="color:#FF7300"></iconify-icon>
+          </div>
+          <p class="text-[11px] text-neutral-700 font-medium text-center break-keep leading-tight">색구슬 세트</p>
+        </div>
+        <div class="flex-shrink-0 bg-neutral-100 rounded-md shadow-1 p-3 flex flex-col items-center gap-1.5 w-[76px]">
+          <div class="w-10 h-10 rounded-sm bg-secondary-100 flex items-center justify-center">
+            <iconify-icon icon="solar:box-minimalistic-linear" width="22" style="color:#4D96FF"></iconify-icon>
+          </div>
+          <p class="text-[11px] text-neutral-700 font-medium text-center break-keep leading-tight">분류 트레이</p>
+        </div>
+        <div class="flex-shrink-0 bg-neutral-100 rounded-md shadow-1 p-3 flex flex-col items-center gap-1.5 w-[76px]">
+          <div class="w-10 h-10 rounded-sm bg-tertiary-100 flex items-center justify-center">
+            <iconify-icon icon="solar:cup-linear" width="22" style="color:#24C783"></iconify-icon>
+          </div>
+          <p class="text-[11px] text-neutral-700 font-medium text-center break-keep leading-tight">작은 컵 2개</p>
+        </div>
+        <div class="flex-shrink-0 bg-neutral-100 rounded-md shadow-1 p-3 flex flex-col items-center gap-1.5 w-[76px]">
+          <div class="w-10 h-10 rounded-sm bg-neutral-200 flex items-center justify-center">
+            <iconify-icon icon="solar:magic-stick-3-linear" width="22" style="color:#8E959E"></iconify-icon>
+          </div>
+          <p class="text-[11px] text-neutral-700 font-medium text-center break-keep leading-tight">집게 (선택)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 놀이 방법 ── -->
+    <div class="reveal d2">
+      <div class="px-5 pt-5 pb-3">
+        <p class="text-[12px] font-semibold text-neutral-500 tracking-wide break-keep">놀이 방법</p>
+      </div>
+      <div id="steps-list" class="flex flex-col gap-0 mx-4">
+
+        <!-- Step 1 -->
+        <div class="flex gap-3 pb-4">
+          <div class="flex flex-col items-center flex-shrink-0">
+            <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center text-white text-[13px] font-bold flex-shrink-0">1</div>
+            <div class="w-0.5 flex-1 bg-neutral-300 mt-1"></div>
+          </div>
+          <div class="bg-neutral-100 rounded-md shadow-1 p-3.5 flex-1 mb-1">
+            <p class="text-[13px] font-bold text-neutral-900 mb-1 break-keep">바닥에 트레이를 펼쳐요</p>
+            <p class="text-[12px] text-neutral-600 leading-[18px] break-keep">분류 트레이를 아이 앞에 놓고, 색깔별 칸을 손가락으로 짚으며 "빨강 칸이에요~"라고 알려주세요.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex gap-3 pb-4">
+          <div class="flex flex-col items-center flex-shrink-0">
+            <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center text-white text-[13px] font-bold flex-shrink-0">2</div>
+            <div class="w-0.5 flex-1 bg-neutral-300 mt-1"></div>
+          </div>
+          <div class="bg-neutral-100 rounded-md shadow-1 p-3.5 flex-1 mb-1">
+            <p class="text-[13px] font-bold text-neutral-900 mb-1 break-keep">구슬을 함께 꺼내요</p>
+            <p class="text-[12px] text-neutral-600 leading-[18px] break-keep">색구슬을 컵에 담아 아이 손이 닿는 곳에 두세요. 구슬 하나를 집어 들며 "이건 무슨 색이에요?" 물어봐요.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex gap-3 pb-4">
+          <div class="flex flex-col items-center flex-shrink-0">
+            <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center text-white text-[13px] font-bold flex-shrink-0">3</div>
+            <div class="w-0.5 flex-1 bg-neutral-300 mt-1"></div>
+          </div>
+          <div class="bg-neutral-100 rounded-md shadow-1 p-3.5 flex-1 mb-1">
+            <p class="text-[13px] font-bold text-neutral-900 mb-1 break-keep">색깔 이름을 말하며 넣어요</p>
+            <p class="text-[12px] text-neutral-600 leading-[18px] break-keep">"빨강은 빨강 칸!"이라고 말하며 아이와 함께 넣어보세요. 아이가 스스로 넣으면 크게 칭찬해주세요 🎉</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="flex gap-3 pb-1">
+          <div class="flex flex-col items-center flex-shrink-0">
+            <div class="w-8 h-8 rounded-full bg-primary-500 flex items-center justify-center text-white text-[13px] font-bold flex-shrink-0">4</div>
+            <div class="w-0.5 flex-1 bg-transparent mt-1"></div>
+          </div>
+          <div class="bg-neutral-100 rounded-md shadow-1 p-3.5 flex-1 mb-1">
+            <p class="text-[13px] font-bold text-neutral-900 mb-1 break-keep">다 채우면 함께 세어요</p>
+            <p class="text-[12px] text-neutral-600 leading-[18px] break-keep">트레이가 가득 차면 "하나, 둘, 셋~" 함께 세어봐요. 집게를 사용하면 소근육 자극이 더욱 커져요!</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── 부모 코칭 팁 ── -->
+    <div class="mx-4 mt-3 reveal d3">
+      <div class="bg-[#FFF8F3] border border-primary-200 rounded-md p-4">
+        <div class="flex items-center gap-2 mb-2.5">
+          <div class="w-7 h-7 rounded-full bg-primary-500 flex items-center justify-center flex-shrink-0">
+            <iconify-icon icon="solar:chat-round-dots-bold" width="14" style="color:white"></iconify-icon>
+          </div>
+          <p class="text-[13px] font-bold text-neutral-900 break-keep">부모 코칭 팁</p>
+        </div>
+        <div class="flex flex-col gap-2">
+          <div class="flex items-start gap-2">
+            <iconify-icon icon="solar:check-circle-bold" width="14" style="color:#FF7300" class="flex-shrink-0 mt-0.5"></iconify-icon>
+            <p class="text-[12px] text-neutral-700 leading-[18px] break-keep">색깔 이름을 천천히, 또렷하게 말해주세요. 아이의 언어 발달에 직접적으로 도움이 돼요.</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <iconify-icon icon="solar:check-circle-bold" width="14" style="color:#FF7300" class="flex-shrink-0 mt-0.5"></iconify-icon>
+            <p class="text-[12px] text-neutral-700 leading-[18px] break-keep">틀려도 괜찮아요! "아, 이건 파랑 칸이에요~"처럼 부드럽게 바로잡아 주세요.</p>
+          </div>
+          <div class="flex items-start gap-2">
+            <iconify-icon icon="solar:check-circle-bold" width="14" style="color:#FF7300" class="flex-shrink-0 mt-0.5"></iconify-icon>
+            <p class="text-[12px] text-neutral-700 leading-[18px] break-keep">한 번에 3~4가지 색으로 시작해, 익숙해지면 색 가짓수를 늘려보세요.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 연결 교구 상품 ── -->
+    <div class="reveal d4">
+      <div class="px-5 pt-5 pb-3">
+        <p class="text-[12px] font-semibold text-neutral-500 tracking-wide break-keep">추천 교구</p>
+      </div>
+      <div onclick="location.href='ybm-baby-shopping-detail.html'" class="mx-4 bg-neutral-100 rounded-md shadow-2 overflow-hidden flex items-center gap-3 p-3 cursor-pointer active:opacity-80 transition-opacity">
+        <div class="w-16 h-16 rounded-sm overflow-hidden bg-neutral-200 flex-shrink-0">
+          <img src="images/1253.jpg" class="w-full h-full object-cover" alt="YBM 색구슬 분류 세트">
+        </div>
+        <div class="flex-1 min-w-0">
+          <span class="bg-primary-100 text-primary-500 text-[10px] font-bold rounded-xs px-1.5 py-0.5 break-keep">소근육 발달</span>
+          <p class="text-[14px] font-bold text-neutral-900 leading-5 break-keep mt-1">YBM 색구슬 분류 세트</p>
+          <p class="text-[12px] text-neutral-500 break-keep">18~36개월 · 안전 인증 소재</p>
+        </div>
+        <div class="flex flex-col items-end gap-1 flex-shrink-0">
+          <p class="text-[15px] font-bold text-primary-500 break-keep">28,000원</p>
+          <iconify-icon icon="solar:alt-arrow-right-linear" width="16" style="color:#BCC2C9"></iconify-icon>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:2rem;"></div>
+  </div><!-- end scroll area -->
+
+  <!-- ── 하단 시작 버튼 ── -->
+  <div class="flex-shrink-0 bg-neutral-100 border-t border-neutral-300 px-4 py-3">
+    <button class="w-full h-13 rounded-pill bg-primary-500 active:bg-primary-600 flex items-center justify-center gap-2 transition-colors" style="height:52px;">
+      <iconify-icon icon="solar:play-bold" width="16" style="color:white"></iconify-icon>
+      <span class="text-white text-[15px] font-bold break-keep">영상 가이드 보기</span>
+    </button>
+  </div>
+
+</div><!-- end phone -->
+
+<script>
+  // 활동별 데이터
+  const guides = {
+    '색구슬': {
+      title: '색구슬 쏙쏙 분류 놀이',
+      img: 'images/1253.jpg',
+      tag: '소근육',
+      tagColor: 'bg-primary-500',
+      time: '10분',
+      level: '쉬움',
+      age: '18~24개월',
+    },
+    '콩': {
+      title: '콩 옮기기 놀이',
+      img: 'images/4531.png',
+      tag: '소근육',
+      tagColor: 'bg-primary-500',
+      time: '8분',
+      level: '쉬움',
+      age: '18~24개월',
+    },
+    '그림책': {
+      title: '그림책 읽기 챌린지',
+      img: 'images/3t52.jpg',
+      tag: '언어',
+      tagColor: 'bg-secondary-500',
+      time: '15분',
+      level: '쉬움',
+      age: '12~24개월',
+    },
+  };
+
+  // URL 파라미터로 활동 전환
+  const params = new URLSearchParams(location.search);
+  const type = params.get('type');
+  if (type && guides[type]) {
+    const g = guides[type];
+    document.getElementById('hero-img').src = g.img;
+    document.getElementById('hero-title').textContent = g.title;
+    document.getElementById('hero-time').textContent = g.time;
+    document.getElementById('hero-level').textContent = g.level;
+    document.getElementById('hero-age').textContent = g.age;
+    document.getElementById('hero-tag').textContent = g.tag;
+    document.title = 'YBM BABY - ' + g.title;
+  }
+
+  // 스크롤 reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
